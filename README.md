@@ -1,384 +1,292 @@
+NimeshStore - Retail & Wholesale Management System
 
-```
-NimeshStore
-├─ pom.xml
-├─ src
-│  ├─ main
-│  │  ├─ java
-│  │  │  └─ com
-│  │  │     └─ nimesh
-│  │  │        ├─ config
-│  │  │        │  ├─ JavaFxApplication.java
-│  │  │        │  ├─ JpaConfig.java
-│  │  │        │  └─ SecurityConfig.java
-│  │  │        ├─ controller
-│  │  │        │  ├─ BarcodeScannerDialogController.java
-│  │  │        │  ├─ BarcodeScannerHandler.java
-│  │  │        │  ├─ BatchManagementController.java
-│  │  │        │  ├─ CustomerDialogController.java
-│  │  │        │  ├─ CustomerManagementController.java
-│  │  │        │  ├─ DashboardController.java
-│  │  │        │  ├─ InventoryController.java
-│  │  │        │  ├─ LoginController.java
-│  │  │        │  ├─ NotificationController.java
-│  │  │        │  ├─ OrderDetailsController.java
-│  │  │        │  ├─ OrderDialogController.java
-│  │  │        │  ├─ PaymentDialogController.java
-│  │  │        │  ├─ POSController.java
-│  │  │        │  ├─ ProductDialogController.java
-│  │  │        │  ├─ ProductSearchDialogController.java
-│  │  │        │  ├─ ReportingController.java
-│  │  │        │  ├─ SettingsController.java
-│  │  │        │  ├─ StockDialogController.java
-│  │  │        │  ├─ SupplierDialogController.java
-│  │  │        │  ├─ SupplierManagementController.java
-│  │  │        │  ├─ TransactionHistoryController.java
-│  │  │        │  └─ UserDialogController.java
-│  │  │        ├─ JavaFxLauncher.java
-│  │  │        ├─ model
-│  │  │        │  ├─ ActivityLog.java
-│  │  │        │  ├─ CartItem.java
-│  │  │        │  ├─ Category.java
-│  │  │        │  ├─ CreditAccount.java
-│  │  │        │  ├─ Customer.java
-│  │  │        │  ├─ Invoice.java
-│  │  │        │  ├─ InvoiceItem.java
-│  │  │        │  ├─ InvoiceItemBatch.java
-│  │  │        │  ├─ OrderItem.java
-│  │  │        │  ├─ Product.java
-│  │  │        │  ├─ ProductBatch.java
-│  │  │        │  ├─ PurchaseOrder.java
-│  │  │        │  ├─ SMSNotification.java
-│  │  │        │  ├─ Supplier.java
-│  │  │        │  ├─ Unit.java
-│  │  │        │  └─ User.java
-│  │  │        ├─ NimeshStoreApplication.java
-│  │  │        ├─ repository
-│  │  │        │  ├─ ActivityLogRepository.java
-│  │  │        │  ├─ CategoryRepository.java
-│  │  │        │  ├─ CreditAccountRepository.java
-│  │  │        │  ├─ CustomerRepository.java
-│  │  │        │  ├─ InvoiceItemBatchRepository.java
-│  │  │        │  ├─ InvoiceItemRepository.java
-│  │  │        │  ├─ InvoiceRepository.java
-│  │  │        │  ├─ OrderItemRepository.java
-│  │  │        │  ├─ ProductBatchRepository.java
-│  │  │        │  ├─ ProductRepository.java
-│  │  │        │  ├─ PurchaseOrderRepository.java
-│  │  │        │  ├─ SMSNotificationRepository.java
-│  │  │        │  ├─ SupplierRepository.java
-│  │  │        │  ├─ UnitRepository.java
-│  │  │        │  └─ UserRepository.java
-│  │  │        ├─ service
-│  │  │        │  ├─ ActivityLogService.java
-│  │  │        │  ├─ BatchReportingService.java
-│  │  │        │  ├─ CategoryService.java
-│  │  │        │  ├─ CustomerService.java
-│  │  │        │  ├─ InvoiceService.java
-│  │  │        │  ├─ LoginService.java
-│  │  │        │  ├─ ProductBatchService.java
-│  │  │        │  ├─ ProductService.java
-│  │  │        │  ├─ PurchaseOrderService.java
-│  │  │        │  ├─ ReportingService.java
-│  │  │        │  ├─ SMSNotificationService.java
-│  │  │        │  ├─ SMSService.java
-│  │  │        │  ├─ SupplierService.java
-│  │  │        │  ├─ SystemConfigService.java
-│  │  │        │  ├─ UnitService.java
-│  │  │        │  └─ UserService.java
-│  │  │        └─ util
-│  │  │           ├─ AlertHelper.java
-│  │  │           ├─ DecimalFormatter.java
-│  │  │           ├─ ExportUtil.java
-│  │  │           ├─ ReceiptPrinter.java
-│  │  │           ├─ SessionManager.java
-│  │  │           ├─ SidebarStateManager.java
-│  │  │           ├─ StageManager.java
-│  │  │           └─ WebcamBarcodeScanner.java
-│  │  └─ resources
-│  │     ├─ application.properties
-│  │     ├─ css
-│  │     │  ├─ batch_management.css
-│  │     │  ├─ customer.css
-│  │     │  ├─ dashboard.css
-│  │     │  ├─ dialog.css
-│  │     │  ├─ inventory.css
-│  │     │  ├─ notifications.css
-│  │     │  ├─ pos.css
-│  │     │  ├─ reports.css
-│  │     │  ├─ settings.css
-│  │     │  ├─ styles.css
-│  │     │  └─ supplier.css
-│  │     ├─ fonts
-│  │     │  └─ fontawesome-webfont.ttf
-│  │     ├─ fxml
-│  │     │  ├─ barcode_scanner_dialog.fxml
-│  │     │  ├─ batch_management.fxml
-│  │     │  ├─ customer_dialog.fxml
-│  │     │  ├─ customer_management.fxml
-│  │     │  ├─ dashboard.fxml
-│  │     │  ├─ employee_pos.fxml
-│  │     │  ├─ inventory.fxml
-│  │     │  ├─ login.fxml
-│  │     │  ├─ notifications.fxml
-│  │     │  ├─ order_details.fxml
-│  │     │  ├─ order_dialog.fxml
-│  │     │  ├─ payment_dialog.fxml
-│  │     │  ├─ pos.fxml
-│  │     │  ├─ product_dialog.fxml
-│  │     │  ├─ product_search_dialog.fxml
-│  │     │  ├─ reporting.fxml
-│  │     │  ├─ settings.fxml
-│  │     │  ├─ stock_dialog.fxml
-│  │     │  ├─ supplier_dialog.fxml
-│  │     │  ├─ supplier_management.fxml
-│  │     │  ├─ transaction_history.fxml
-│  │     │  └─ user_dialog.fxml
-│  │     └─ images
-│  │        └─ nimesh-store-icon.png
-│  └─ test
-│     └─ java
-└─ target
-   ├─ classes
-   │  ├─ application.properties
-   │  ├─ com
-   │  │  └─ nimesh
-   │  │     ├─ config
-   │  │     │  ├─ JavaFxApplication.class
-   │  │     │  ├─ JpaConfig.class
-   │  │     │  └─ SecurityConfig.class
-   │  │     ├─ controller
-   │  │     │  ├─ BarcodeScannerDialogController.class
-   │  │     │  ├─ BarcodeScannerHandler.class
-   │  │     │  ├─ BatchManagementController$1.class
-   │  │     │  ├─ BatchManagementController$2.class
-   │  │     │  ├─ BatchManagementController$3.class
-   │  │     │  ├─ BatchManagementController.class
-   │  │     │  ├─ CustomerDialogController.class
-   │  │     │  ├─ CustomerManagementController$1.class
-   │  │     │  ├─ CustomerManagementController$2.class
-   │  │     │  ├─ CustomerManagementController$3.class
-   │  │     │  ├─ CustomerManagementController$4.class
-   │  │     │  ├─ CustomerManagementController$5.class
-   │  │     │  ├─ CustomerManagementController$6.class
-   │  │     │  ├─ CustomerManagementController$7.class
-   │  │     │  ├─ CustomerManagementController.class
-   │  │     │  ├─ DashboardController.class
-   │  │     │  ├─ InventoryController$1.class
-   │  │     │  ├─ InventoryController$2.class
-   │  │     │  ├─ InventoryController$3.class
-   │  │     │  ├─ InventoryController$4.class
-   │  │     │  ├─ InventoryController$5.class
-   │  │     │  ├─ InventoryController.class
-   │  │     │  ├─ LoginController.class
-   │  │     │  ├─ NotificationController$1.class
-   │  │     │  ├─ NotificationController.class
-   │  │     │  ├─ OrderDetailsController$1.class
-   │  │     │  ├─ OrderDetailsController$2.class
-   │  │     │  ├─ OrderDetailsController.class
-   │  │     │  ├─ OrderDialogController$1.class
-   │  │     │  ├─ OrderDialogController$2.class
-   │  │     │  ├─ OrderDialogController$3.class
-   │  │     │  ├─ OrderDialogController.class
-   │  │     │  ├─ PaymentDialogController.class
-   │  │     │  ├─ POSController$1.class
-   │  │     │  ├─ POSController$2.class
-   │  │     │  ├─ POSController$3.class
-   │  │     │  ├─ POSController$4.class
-   │  │     │  ├─ POSController$5.class
-   │  │     │  ├─ POSController$6.class
-   │  │     │  ├─ POSController.class
-   │  │     │  ├─ ProductDialogController$1.class
-   │  │     │  ├─ ProductDialogController$2.class
-   │  │     │  ├─ ProductDialogController.class
-   │  │     │  ├─ ProductSearchDialogController$1.class
-   │  │     │  ├─ ProductSearchDialogController.class
-   │  │     │  ├─ ReportingController$1.class
-   │  │     │  ├─ ReportingController$10.class
-   │  │     │  ├─ ReportingController$11.class
-   │  │     │  ├─ ReportingController$12.class
-   │  │     │  ├─ ReportingController$13.class
-   │  │     │  ├─ ReportingController$14.class
-   │  │     │  ├─ ReportingController$15.class
-   │  │     │  ├─ ReportingController$16.class
-   │  │     │  ├─ ReportingController$17.class
-   │  │     │  ├─ ReportingController$18.class
-   │  │     │  ├─ ReportingController$19.class
-   │  │     │  ├─ ReportingController$2.class
-   │  │     │  ├─ ReportingController$20.class
-   │  │     │  ├─ ReportingController$21.class
-   │  │     │  ├─ ReportingController$22.class
-   │  │     │  ├─ ReportingController$23.class
-   │  │     │  ├─ ReportingController$24.class
-   │  │     │  ├─ ReportingController$25.class
-   │  │     │  ├─ ReportingController$26.class
-   │  │     │  ├─ ReportingController$27.class
-   │  │     │  ├─ ReportingController$28.class
-   │  │     │  ├─ ReportingController$29.class
-   │  │     │  ├─ ReportingController$3.class
-   │  │     │  ├─ ReportingController$30.class
-   │  │     │  ├─ ReportingController$31.class
-   │  │     │  ├─ ReportingController$32.class
-   │  │     │  ├─ ReportingController$33.class
-   │  │     │  ├─ ReportingController$34.class
-   │  │     │  ├─ ReportingController$35.class
-   │  │     │  ├─ ReportingController$36.class
-   │  │     │  ├─ ReportingController$37.class
-   │  │     │  ├─ ReportingController$38.class
-   │  │     │  ├─ ReportingController$39.class
-   │  │     │  ├─ ReportingController$4.class
-   │  │     │  ├─ ReportingController$40.class
-   │  │     │  ├─ ReportingController$41.class
-   │  │     │  ├─ ReportingController$42.class
-   │  │     │  ├─ ReportingController$43.class
-   │  │     │  ├─ ReportingController$44.class
-   │  │     │  ├─ ReportingController$45.class
-   │  │     │  ├─ ReportingController$46.class
-   │  │     │  ├─ ReportingController$47.class
-   │  │     │  ├─ ReportingController$48.class
-   │  │     │  ├─ ReportingController$49.class
-   │  │     │  ├─ ReportingController$5.class
-   │  │     │  ├─ ReportingController$50.class
-   │  │     │  ├─ ReportingController$51.class
-   │  │     │  ├─ ReportingController$52.class
-   │  │     │  ├─ ReportingController$53.class
-   │  │     │  ├─ ReportingController$54.class
-   │  │     │  ├─ ReportingController$55.class
-   │  │     │  ├─ ReportingController$56.class
-   │  │     │  ├─ ReportingController$57.class
-   │  │     │  ├─ ReportingController$58.class
-   │  │     │  ├─ ReportingController$59.class
-   │  │     │  ├─ ReportingController$6.class
-   │  │     │  ├─ ReportingController$7.class
-   │  │     │  ├─ ReportingController$8.class
-   │  │     │  ├─ ReportingController$9.class
-   │  │     │  ├─ ReportingController.class
-   │  │     │  ├─ SettingsController$1.class
-   │  │     │  ├─ SettingsController.class
-   │  │     │  ├─ StockDialogController.class
-   │  │     │  ├─ SupplierDialogController.class
-   │  │     │  ├─ SupplierManagementController$1.class
-   │  │     │  ├─ SupplierManagementController$2.class
-   │  │     │  ├─ SupplierManagementController$3.class
-   │  │     │  ├─ SupplierManagementController$4.class
-   │  │     │  ├─ SupplierManagementController$5.class
-   │  │     │  ├─ SupplierManagementController$6.class
-   │  │     │  ├─ SupplierManagementController.class
-   │  │     │  ├─ TransactionHistoryController$1.class
-   │  │     │  ├─ TransactionHistoryController$2.class
-   │  │     │  ├─ TransactionHistoryController$3.class
-   │  │     │  ├─ TransactionHistoryController.class
-   │  │     │  └─ UserDialogController.class
-   │  │     ├─ JavaFxLauncher.class
-   │  │     ├─ model
-   │  │     │  ├─ ActivityLog.class
-   │  │     │  ├─ CartItem.class
-   │  │     │  ├─ Category.class
-   │  │     │  ├─ CreditAccount.class
-   │  │     │  ├─ Customer.class
-   │  │     │  ├─ Invoice.class
-   │  │     │  ├─ InvoiceItem.class
-   │  │     │  ├─ InvoiceItemBatch.class
-   │  │     │  ├─ OrderItem.class
-   │  │     │  ├─ Product.class
-   │  │     │  ├─ ProductBatch.class
-   │  │     │  ├─ PurchaseOrder.class
-   │  │     │  ├─ SMSNotification.class
-   │  │     │  ├─ Supplier.class
-   │  │     │  ├─ Unit.class
-   │  │     │  └─ User.class
-   │  │     ├─ NimeshStoreApplication.class
-   │  │     ├─ repository
-   │  │     │  ├─ ActivityLogRepository.class
-   │  │     │  ├─ CategoryRepository.class
-   │  │     │  ├─ CreditAccountRepository.class
-   │  │     │  ├─ CustomerRepository.class
-   │  │     │  ├─ InvoiceItemBatchRepository.class
-   │  │     │  ├─ InvoiceItemRepository.class
-   │  │     │  ├─ InvoiceRepository.class
-   │  │     │  ├─ OrderItemRepository.class
-   │  │     │  ├─ ProductBatchRepository.class
-   │  │     │  ├─ ProductRepository.class
-   │  │     │  ├─ PurchaseOrderRepository.class
-   │  │     │  ├─ SMSNotificationRepository.class
-   │  │     │  ├─ SupplierRepository.class
-   │  │     │  ├─ UnitRepository.class
-   │  │     │  └─ UserRepository.class
-   │  │     ├─ service
-   │  │     │  ├─ ActivityLogService.class
-   │  │     │  ├─ BatchReportingService.class
-   │  │     │  ├─ CategoryService.class
-   │  │     │  ├─ CustomerService.class
-   │  │     │  ├─ InvoiceService.class
-   │  │     │  ├─ LoginService.class
-   │  │     │  ├─ ProductBatchService$BatchInfo.class
-   │  │     │  ├─ ProductBatchService$BatchUsage.class
-   │  │     │  ├─ ProductBatchService.class
-   │  │     │  ├─ ProductService.class
-   │  │     │  ├─ PurchaseOrderService.class
-   │  │     │  ├─ ReportingService.class
-   │  │     │  ├─ SMSNotificationService.class
-   │  │     │  ├─ SMSService.class
-   │  │     │  ├─ SupplierService.class
-   │  │     │  ├─ SystemConfigService.class
-   │  │     │  ├─ UnitService.class
-   │  │     │  └─ UserService.class
-   │  │     └─ util
-   │  │        ├─ AlertHelper.class
-   │  │        ├─ DecimalFormatter.class
-   │  │        ├─ ExportUtil.class
-   │  │        ├─ ReceiptPrinter.class
-   │  │        ├─ SessionManager.class
-   │  │        ├─ SidebarStateManager.class
-   │  │        ├─ StageManager.class
-   │  │        └─ WebcamBarcodeScanner.class
-   │  ├─ css
-   │  │  ├─ batch_management.css
-   │  │  ├─ customer.css
-   │  │  ├─ dashboard.css
-   │  │  ├─ dialog.css
-   │  │  ├─ inventory.css
-   │  │  ├─ notifications.css
-   │  │  ├─ pos.css
-   │  │  ├─ reports.css
-   │  │  ├─ settings.css
-   │  │  ├─ styles.css
-   │  │  └─ supplier.css
-   │  ├─ fonts
-   │  │  └─ fontawesome-webfont.ttf
-   │  ├─ fxml
-   │  │  ├─ barcode_scanner_dialog.fxml
-   │  │  ├─ batch_management.fxml
-   │  │  ├─ customer_dialog.fxml
-   │  │  ├─ customer_management.fxml
-   │  │  ├─ dashboard.fxml
-   │  │  ├─ employee_pos.fxml
-   │  │  ├─ inventory.fxml
-   │  │  ├─ login.fxml
-   │  │  ├─ notifications.fxml
-   │  │  ├─ order_details.fxml
-   │  │  ├─ order_dialog.fxml
-   │  │  ├─ payment_dialog.fxml
-   │  │  ├─ pos.fxml
-   │  │  ├─ product_dialog.fxml
-   │  │  ├─ product_search_dialog.fxml
-   │  │  ├─ reporting.fxml
-   │  │  ├─ settings.fxml
-   │  │  ├─ stock_dialog.fxml
-   │  │  ├─ supplier_dialog.fxml
-   │  │  ├─ supplier_management.fxml
-   │  │  ├─ transaction_history.fxml
-   │  │  └─ user_dialog.fxml
-   │  └─ images
-   │     └─ nimesh-store-icon.png
-   ├─ generated-sources
-   │  └─ annotations
-   ├─ maven-status
-   │  └─ maven-compiler-plugin
-   │     └─ compile
-   │        └─ default-compile
-   │           ├─ createdFiles.lst
-   │           └─ inputFiles.lst
-   └─ test-classes
+📋 Table of Contents
 
-```
+Overview
+Features
+Technology Stack
+Prerequisites
+Installation
+Configuration
+Usage
+Project Structure
+Database Schema
+API Documentation
+Screenshots
+Contributing
+License
+Contact
+
+🏪 Overview
+NimeshStore is a comprehensive desktop-based Retail & Wholesale Management System designed to streamline business operations for small to medium-sized retail businesses. Built with Spring Boot and JavaFX, it offers a modern, user-friendly interface for managing inventory, sales, customers, and financial transactions.
+The system addresses key challenges in retail operations including:
+
+Manual billing inefficiencies
+Inventory tracking difficulties
+Customer credit management
+Real-time reporting needs
+Multi-pricing strategies for retail/wholesale
+
+✨ Features
+📊 Point of Sale (POS)
+
+Barcode Scanning: Integrated barcode scanner support with webcam fallback
+Quick Billing: Fast product search and cart management
+Multiple Payment Methods: Cash, credit, and partial payments
+Customer Type Pricing: Automatic retail/wholesale pricing
+Receipt Printing: Customizable receipt formats
+
+📦 Inventory Management
+
+Batch Tracking: FIFO, LIFO, and Average costing methods
+Real-time Stock Updates: Automatic inventory adjustments
+Low Stock Alerts: Configurable reorder points
+Product Categorization: Organized by categories and units
+Expiry Management: Track batch expiry dates
+
+👥 Customer Management
+
+Customer Profiles: Detailed customer information
+Credit Accounts: Credit limit management and tracking
+Transaction History: Complete purchase history
+SMS Notifications: Automated balance reminders via Twilio
+Customer Types: Separate retail and wholesale customer management
+
+📈 Reporting & Analytics
+
+Sales Reports: Daily, monthly, and yearly analysis
+Inventory Reports: Stock levels, movement, and valuation
+Customer Analytics: Purchase patterns and credit analysis
+Profit Analysis: Batch-wise profit calculations
+Excel Export: Export reports to Excel format
+
+🔐 Security & Administration
+
+Role-Based Access: Admin and Employee roles
+Activity Logging: Complete audit trail
+Secure Authentication: BCrypt password encryption
+Session Management: Secure user sessions
+
+🏭 Supplier Management
+
+Supplier Profiles: Contact and payment information
+Purchase Orders: Create and track orders
+Order History: Complete supplier transaction history
+
+🛠️ Technology Stack
+Backend
+
+Framework: Spring Boot 3.1.5
+Language: Java 21
+Database: MySQL 8.0
+ORM: Hibernate/JPA
+Security: Spring Security
+
+Frontend
+
+UI Framework: JavaFX 21
+Styling: CSS3
+Layout: FXML
+
+Libraries & Tools
+
+Build Tool: Maven
+Barcode: ZXing
+Excel Export: Apache POI
+SMS Service: Twilio SDK
+Video Capture: JavaCV
+IDE: Apache NetBeans / IntelliJ IDEA
+
+📋 Prerequisites
+Before installing NimeshStore, ensure you have:
+
+Java Development Kit (JDK) 21 or higher
+MySQL Server 8.0 or higher
+Maven 3.8 or higher
+Git (for cloning the repository)
+4GB RAM minimum (8GB recommended)
+Windows OS (primary support, Linux/Mac compatible)
+
+🚀 Installation
+1. Clone the Repository
+bashgit clone https://github.com/yourusername/NimeshStore.git
+cd NimeshStore
+2. Set Up MySQL Database
+sql-- Create database
+CREATE DATABASE nimeshstore;
+
+-- Create user (optional)
+CREATE USER 'nimesh'@'localhost' IDENTIFIED BY 'your_password';
+GRANT ALL PRIVILEGES ON nimeshstore.* TO 'nimesh'@'localhost';
+FLUSH PRIVILEGES;
+
+-- Import the schema
+mysql -u root -p nimeshstore < nimeshstore_new.sql
+3. Configure Application Properties
+Edit src/main/resources/application.properties:
+properties# Database Configuration
+spring.datasource.url=jdbc:mysql://localhost:3306/nimeshstore
+spring.datasource.username=your_username
+spring.datasource.password=your_password
+
+# SMS Configuration (Twilio)
+sms.enabled=true
+twilio.account.sid=your_twilio_sid
+twilio.auth.token=your_twilio_token
+twilio.phone.number=your_twilio_number
+
+# Application Settings
+app.currency=Rs.
+app.store.name=Nimesh Store
+app.store.address=Your Store Address
+app.store.phone=+94XXXXXXXXX
+4. Build the Project
+bashmvn clean install
+5. Run the Application
+bashmvn spring-boot:run
+Or run the main class NimeshStoreApplication.java from your IDE.
+⚙️ Configuration
+Pricing Strategy Configuration
+The system supports three pricing strategies for batch management:
+
+FIFO (First In, First Out)
+LIFO (Last In, First Out)
+Average Cost
+
+Configure in Settings → System Configuration → Pricing Strategy
+SMS Service Setup
+
+Create a Twilio account at https://www.twilio.com
+Get your Account SID, Auth Token, and Phone Number
+Update application.properties with your credentials
+Enable SMS notifications in Settings
+
+Barcode Scanner Setup
+
+USB barcode scanners are automatically detected
+For webcam scanning, ensure camera permissions are granted
+Supported formats: EAN-13, Code 128, QR Code
+
+📖 Usage
+Default Login Credentials
+Admin User:
+Username: admin
+Password: admin123
+
+Employee User:
+Username: employee
+Password: emp123
+⚠️ Change default passwords after first login!
+Quick Start Guide
+
+Initial Setup
+
+Add product categories and units
+Create supplier profiles
+Add products with barcodes
+
+
+Daily Operations
+
+Use POS for sales transactions
+Monitor inventory levels
+Process customer payments
+
+
+Reporting
+
+Generate daily sales reports
+Check inventory status
+Review customer balances
+
+
+
+📁 Project Structure
+NimeshStore/
+├── src/
+│   ├── main/
+│   │   ├── java/com/nimesh/
+│   │   │   ├── config/          # Configuration classes
+│   │   │   ├── controller/      # JavaFX controllers
+│   │   │   ├── model/          # Entity classes
+│   │   │   ├── repository/     # Data access layer
+│   │   │   ├── service/        # Business logic
+│   │   │   ├── util/           # Utility classes
+│   │   │   └── NimeshStoreApplication.java
+│   │   └── resources/
+│   │       ├── fxml/           # JavaFX layouts
+│   │       ├── css/            # Stylesheets
+│   │       ├── images/         # Application images
+│   │       └── application.properties
+│   └── test/                   # Test classes
+├── pom.xml                     # Maven configuration
+├── README.md                   # This file
+└── nimeshstore_new.sql        # Database schema
+🗄️ Database Schema
+Core Tables
+
+products - Product catalog with pricing
+product_batches - Batch-wise inventory tracking
+customers - Customer profiles
+credit_accounts - Customer credit management
+invoices - Sales transactions
+invoice_items - Invoice line items
+suppliers - Supplier information
+purchase_orders - Purchase order management
+users - System users
+activity_logs - Audit trail
+
+Key Relationships
+
+Products → Product Batches (1:N)
+Customers → Credit Accounts (1:1)
+Invoices → Invoice Items (1:N)
+Invoice Items → Product Batches (N:N)
+
+📸 Screenshots
+Login Screen
+<img src="docs/screenshots/login.png" alt="Login Screen" width="600"/>
+Dashboard
+<img src="docs/screenshots/dashboard.png" alt="Dashboard" width="800"/>
+Point of Sale
+<img src="docs/screenshots/pos.png" alt="POS Screen" width="800"/>
+Inventory Management
+<img src="docs/screenshots/inventory.png" alt="Inventory Management" width="800"/>
+🤝 Contributing
+We welcome contributions! Please follow these steps:
+
+Fork the repository
+Create a feature branch (git checkout -b feature/AmazingFeature)
+Commit your changes (git commit -m 'Add some AmazingFeature')
+Push to the branch (git push origin feature/AmazingFeature)
+Open a Pull Request
+
+Coding Standards
+
+Follow Java naming conventions
+Add JavaDoc comments for public methods
+Write unit tests for new features
+Ensure all tests pass before submitting PR
+
+🐛 Known Issues
+
+SMS notifications require active internet connection
+Webcam barcode scanning may be slow on some systems
+Report generation for large datasets may take time
+
+
+👨‍💻 Author
+Kaushalya Wickramasinghe - Initial work - GitHub Profile
+📞 Contact
+For support or queries:
+
+Email: kaushalyawiki@gmail.com
+Phone: +94701614804
+Issues: GitHub Issues
+
+
+
+
+<div align="center">
+  Made with ❤️ in Sri Lanka
+</div>
