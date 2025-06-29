@@ -1,0 +1,519 @@
+/* Base Styles */
+.root {
+    -fx-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    -fx-background-color: #f5f7fa;
+}
+
+/* Font Awesome Icon styles */
+@font-face {
+    font-family: 'FontAwesome';
+    src: url('../fonts/fontawesome-webfont.ttf');
+}
+
+.icon {
+    -fx-font-family: 'FontAwesome';
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    -fx-background-color: #2c3e50;
+    -fx-transition-duration: 250ms;
+}
+
+.sidebar.collapsed {
+    -fx-pref-width: 70px;
+    -fx-max-width: 70px;
+    -fx-min-width: 70px;
+}
+
+.toggle-sidebar-btn {
+    -fx-background-color: transparent;
+    -fx-padding: 5px;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+}
+
+.toggle-sidebar-btn:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+}
+
+.toggle-icon {
+    -fx-font-size: 14px;
+    -fx-text-fill: white;
+}
+
+.expand-sidebar-btn {
+    -fx-background-color: #3498db;
+    -fx-padding: 5px 8px;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-cursor: hand;
+    -fx-min-width: 30px;
+    -fx-max-width: 30px;
+    -fx-min-height: 30px;
+    -fx-max-height: 30px;
+}
+
+.expand-sidebar-btn:hover {
+    -fx-background-color: #2980b9;
+}
+
+.logo-container {
+    -fx-background-color: #1a2530;
+}
+
+.logo-text {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.menu-container {
+    -fx-background-color: transparent;
+}
+
+.menu-section {
+    -fx-text-fill: #6c7b8c;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-padding: 3px 0px 0px 0px;
+}
+
+.menu-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #ecf0f1;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+    -fx-padding: 0 0 0 10px;
+    -fx-background-radius: 8px;
+}
+
+/* Collapsed sidebar menu buttons */
+.sidebar.collapsed .menu-button {
+    -fx-alignment: CENTER;
+    -fx-content-display: GRAPHIC_ONLY;
+    -fx-padding: 0;
+    -fx-pref-width: 50px;
+}
+
+.sidebar.collapsed .menu-section,
+.sidebar.collapsed .logo-text,
+.sidebar.collapsed .separator {
+    -fx-opacity: 0;
+    -fx-max-height: 0;
+    -fx-min-height: 0;
+    -fx-pref-height: 0;
+    -fx-padding: 0;
+}
+
+.sidebar.collapsed .logo-container {
+    -fx-pref-height: 60px;
+    -fx-min-height: 60px;
+    -fx-max-height: 60px;
+}
+
+.menu-button:hover {
+    -fx-background-color: #3d566e;
+}
+
+.menu-button:pressed {
+    -fx-background-color: #2c3e50;
+}
+
+.active-menu-button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+}
+
+/* Make icon white when button is selected for better visibility */
+.active-menu-button .icon {
+    -fx-text-fill: white !important;
+}
+
+/* Icons for sidebar */
+.dashboard-icon {
+    -fx-text-fill: #3498db;
+}
+
+.inventory-icon {
+    -fx-text-fill: #2ecc71;
+}
+
+.pos-icon {
+    -fx-text-fill: #e74c3c;
+}
+
+.customers-icon {
+    -fx-text-fill: #f39c12;
+}
+
+.suppliers-icon {
+    -fx-text-fill: #9b59b6;
+}
+
+.reports-icon {
+    -fx-text-fill: #1abc9c;
+}
+
+.inventory-report-icon {
+    -fx-text-fill: #27ae60;
+}
+
+.settings-icon {
+    -fx-text-fill: #7f8c8d;
+}
+
+.logout-icon {
+    -fx-text-fill: #e74c3c;
+}
+
+/* Top Bar Styles */
+.top-bar {
+    -fx-background-color: white;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);
+}
+
+.page-title {
+    -fx-text-fill: #2c3e50;
+    -fx-font-weight: bold;
+}
+
+.datetime-label {
+    -fx-text-fill: #7f8c8d;
+}
+
+.user-label {
+    -fx-text-fill: #2c3e50;
+    -fx-font-weight: bold;
+}
+
+/* Content Area Styles */
+.content-area {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+    -fx-background-insets: 0;
+}
+
+.content-area > .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+    -fx-background-insets: 0;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-pref-width: 10px;
+}
+
+.scroll-bar:horizontal {
+    -fx-background-color: transparent;
+    -fx-pref-height: 10px;
+}
+
+.scroll-bar:vertical .thumb,
+.scroll-bar:horizontal .thumb {
+    -fx-background-color: #bdc3c7;
+    -fx-background-radius: 5px;
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0 5 0 5;
+}
+
+/* Scrollbar for Recent Activities */
+.activities-scroll-pane {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+    -fx-background-insets: 0;
+    -fx-max-height: 120px;
+}
+
+.activities-scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+.activities-scroll-pane .scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-pref-width: 10px;
+}
+
+.activities-scroll-pane .scroll-bar:vertical .thumb {
+    -fx-background-color: #bdc3c7;
+    -fx-background-radius: 5px;
+}
+
+/* Dashboard Cards Styles */
+.dashboard-card {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+}
+
+.card-title {
+    -fx-text-fill: #7f8c8d;
+    -fx-font-size: 14px;
+}
+
+.card-value {
+    -fx-text-fill: #2c3e50;
+    -fx-font-weight: bold;
+    -fx-font-size: 24px;
+}
+
+.card-change {
+    -fx-font-size: 12px;
+}
+
+.positive-change {
+    -fx-text-fill: #2ecc71;
+}
+
+.negative-change {
+    -fx-text-fill: #e74c3c;
+}
+
+.neutral-change {
+    -fx-text-fill: #7f8c8d;
+}
+
+/* Card and Icon Specific Colors */
+.sales-card {
+    -fx-border-color: #3498db;
+    -fx-border-width: 0 0 0 5px;
+    -fx-border-radius: 10 0 0 10;
+}
+
+/* Card Icons Enhancement */
+.card-icon {
+    -fx-font-family: 'FontAwesome';
+    -fx-font-size: 30px;
+    -fx-alignment: center;
+    -fx-padding: 5px;
+    -fx-background-radius: 50%;
+    -fx-background-color: rgba(255, 255, 255, 0.2);
+}
+
+.sales-icon {
+    -fx-text-fill: #3498db;
+}
+
+.inventory-card {
+    -fx-border-color: #2ecc71;
+    -fx-border-width: 0 0 0 5px;
+    -fx-border-radius: 10 0 0 10;
+}
+
+.inventory-icon {
+    -fx-text-fill: #2ecc71;
+}
+
+.customers-card {
+    -fx-border-color: #f39c12;
+    -fx-border-width: 0 0 0 5px;
+    -fx-border-radius: 10 0 0 10;
+}
+
+.customers-icon {
+    -fx-text-fill: #f39c12;
+}
+
+.credit-card {
+    -fx-border-color: #e74c3c;
+    -fx-border-width: 0 0 0 5px;
+    -fx-border-radius: 10 0 0 10;
+}
+
+.credit-icon {
+    -fx-text-fill: #e74c3c;
+}
+
+/* Chart Cards Styles */
+.chart-card {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+}
+
+.chart-title {
+    -fx-text-fill: #2c3e50;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+}
+
+/* Chart Styling */
+.chart {
+    -fx-padding: 10px;
+}
+
+.chart-plot-background {
+    -fx-background-color: transparent;
+}
+
+.chart-vertical-grid-lines {
+    -fx-stroke: #ecf0f1;
+}
+
+.chart-horizontal-grid-lines {
+    -fx-stroke: #ecf0f1;
+}
+
+.axis {
+    -fx-tick-label-fill: #7f8c8d;
+}
+
+.axis-label {
+    -fx-text-fill: #7f8c8d;
+}
+
+.chart-bar {
+    -fx-bar-fill: #3498db;
+}
+
+.default-color0.chart-pie { -fx-pie-color: #3498db; }
+.default-color1.chart-pie { -fx-pie-color: #2ecc71; }
+.default-color2.chart-pie { -fx-pie-color: #f39c12; }
+.default-color3.chart-pie { -fx-pie-color: #e74c3c; }
+.default-color4.chart-pie { -fx-pie-color: #9b59b6; }
+.default-color5.chart-pie { -fx-pie-color: #1abc9c; }
+.default-color6.chart-pie { -fx-pie-color: #d35400; }
+.default-color7.chart-pie { -fx-pie-color: #34495e; }
+
+.chart-pie-label {
+    -fx-fill: #2c3e50;
+}
+
+.chart-pie-label-line {
+    -fx-stroke: #7f8c8d;
+    -fx-fill: #7f8c8d;
+}
+
+.chart-legend {
+    -fx-background-color: transparent;
+    -fx-padding: 10px;
+}
+
+.chart-legend-item {
+    -fx-text-fill: #2c3e50;
+}
+
+/* Recent Activities Container */
+.activity-item {
+    -fx-background-color: #ecf0f1;
+    -fx-background-radius: 5px;
+    -fx-padding: 10px;
+}
+
+.activity-text {
+    -fx-text-fill: #2c3e50;
+    -fx-font-size: 13px;
+}
+
+.activity-time {
+    -fx-text-fill: #7f8c8d;
+    -fx-font-size: 12px;
+}
+
+/* Button Styles */
+.action-button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+}
+
+.action-button:hover {
+    -fx-background-color: #2980b9;
+}
+
+.action-button:pressed {
+    -fx-background-color: #1c6ea4;
+}
+
+.secondary-button {
+    -fx-background-color: #ecf0f1;
+    -fx-text-fill: #2c3e50;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+}
+
+.secondary-button:hover {
+    -fx-background-color: #bdc3c7;
+}
+
+.secondary-button:pressed {
+    -fx-background-color: #95a5a6;
+}
+
+/* Compact menu styles for reports section */
+.menu-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #ecf0f1;
+    -fx-font-size: 13px;
+    -fx-cursor: hand;
+    -fx-padding: 0 0 0 10px;
+    -fx-background-radius: 8px;
+}
+
+/* Financial icon color */
+.financial-icon {
+    -fx-text-fill: #e67e22;
+}
+
+/* Adjust spacing for better vertical fit */
+.menu-section {
+    -fx-text-fill: #6c7b8c;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-padding: 3px 0px 0px 0px;
+}
+
+/* Make the separator more compact */
+.sidebar .separator {
+    -fx-padding: 5px 0 5px 0;
+}
+
+/* Optional: Add a scrollbar to sidebar if needed */
+.menu-container {
+    -fx-background-color: transparent;
+    -fx-fit-to-height: true;
+}
+
+/* If you need a scrolling sidebar for many items */
+.menu-container-scroll {
+    -fx-background-color: transparent;
+    -fx-fit-to-height: true;
+}
+
+.menu-container-scroll .scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-pref-width: 10px;
+}
+
+.menu-container-scroll .scroll-bar:vertical .thumb {
+    -fx-background-color: #3d566e;
+    -fx-background-radius: 5px;
+}
+
+.notifications-icon {
+    -fx-font-family: "FontAwesome";
+    -fx-font-size: 14px;
+    -fx-text-fill: #3498db;
+}
+
+.batch-icon {
+    -fx-text-fill: #6b7280;
+}
+
+.menu-button:hover .batch-icon,
+.active-menu-button .batch-icon {
+    -fx-text-fill: #2563eb;
+}

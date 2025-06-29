@@ -1,0 +1,193 @@
+/* Reports Module Styles */
+.root {
+    -fx-background-color: #f5f7fa;
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* Tab Pane Styles */
+.tab-pane {
+    -fx-background-color: #f5f7fa;
+    -fx-tab-min-width: 120px;
+    -fx-tab-max-width: 120px;
+    -fx-tab-min-height: 40px;
+}
+
+.tab {
+    -fx-background-color: #ecf0f1;
+    -fx-background-radius: 8px 8px 0 0;
+    -fx-padding: 5 15 5 15;
+}
+
+.tab:selected {
+    -fx-background-color: white;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.tab .tab-label {
+    -fx-text-fill: #7f8c8d;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+.tab:selected .tab-label {
+    -fx-text-fill: #2c3e50;
+}
+
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: #f5f7fa;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 1);
+}
+
+
+
+.action-button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.action-button:hover {
+    -fx-background-color: #2980b9;
+}
+
+.date-picker {
+    -fx-background-color: white;
+    -fx-border-color: #ddd;
+    -fx-border-radius: 3px;
+}
+
+.combo-box {
+    -fx-background-color: white;
+    -fx-border-color: #ddd;
+    -fx-border-radius: 3px;
+}
+
+.placeholder-text {
+    -fx-text-fill: #95a5a6;
+    -fx-font-size: 14px;
+    -fx-alignment: center;
+}
+
+/* Report Container */
+.report-container {
+    -fx-background-color: white;
+    -fx-background-radius: 5px;
+    -fx-border-color: #ddd;
+    -fx-border-radius: 5px;
+    -fx-padding: 15px;
+}
+
+.report-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+    -fx-padding: 0 0 10 0;
+}
+
+.report-subtitle {
+    -fx-font-size: 14px;
+    -fx-text-fill: #7f8c8d;
+    -fx-padding: 0 0 15 0;
+}
+
+.summary-box {
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: #ddd;
+    -fx-border-radius: 5px;
+    -fx-padding: 10px;
+    -fx-spacing: 5px;
+}
+
+.summary-item {
+    -fx-font-size: 14px;
+}
+
+.summary-value {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+/* Chart Styles */
+.chart {
+    -fx-padding: 10px;
+}
+
+.chart-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.axis-label {
+    -fx-font-size: 12px;
+}
+
+.chart-legend {
+    -fx-background-color: transparent;
+}
+
+/* Table Styles */
+.table-view {
+    -fx-background-color: white;
+    -fx-background-radius: 5px;
+    -fx-border-color: #ddd;
+    -fx-border-radius: 5px;
+}
+
+.table-view .column-header {
+    -fx-background-color: #34495e;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10 5 10 5;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-alignment: center-left;
+}
+
+.table-view .table-cell {
+    -fx-padding: 8 5 8 5;
+    -fx-border-width: 0;
+}
+
+.table-view .table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: #ecf0f1;
+    -fx-border-width: 0 0 1 0;
+}
+
+.table-view .table-row-cell:odd {
+    -fx-background-color: #f9f9f9;
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: #d4e6f1;
+    -fx-text-fill: black;
+}
+
+/* Report Export Button */
+.export-button {
+    -fx-background-color: #27ae60;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.export-button:hover {
+    -fx-background-color: #219653;
+}
+
+/* Financial Summary */
+.profit {
+    -fx-text-fill: #27ae60;
+}
+
+.loss {
+    -fx-text-fill: #e74c3c;
+}
+
+.neutral {
+    -fx-text-fill: #3498db;
+}

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="notificationPane" prefHeight="700.0" prefWidth="950.0" stylesheets="@../css/notifications.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nimesh.controller.NotificationController">
+   <top>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <Label styleClass="page-title" text="SMS Notifications">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
+            </Label>
+            <Label styleClass="page-subtitle" text="Manage customer notifications and payment reminders">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </Label>
+            <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="status-bar">
+               <children>
+                  <Label fx:id="statusLabel" styleClass="status-label" text="SMS Service: ENABLED">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label text="Filter:">
+                     <HBox.margin>
+                        <Insets left="50.0" />
+                     </HBox.margin>
+                  </Label>
+                  <ComboBox fx:id="filterComboBox" prefWidth="200.0" promptText="All Notifications" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
+         </BorderPane.margin>
+      </VBox>
+   </top>
+   <center>
+      <TableView fx:id="notificationTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="phoneColumn" prefWidth="150.0" text="Phone Number" />
+          <TableColumn fx:id="messageColumn" prefWidth="450.0" text="Message" />
+            <TableColumn fx:id="dateColumn" prefWidth="200.0" text="Date Sent" />
+            <TableColumn fx:id="statusColumn" prefWidth="120.0" text="Status" />
+        </columns>
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="20.0" right="20.0" />
+         </BorderPane.margin>
+      </TableView>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="70.0" spacing="20.0" styleClass="bottom-bar" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="sendAllRemindersButton" mnemonicParsing="false" onAction="#handleSendAllReminders" styleClass="action-button" text="Send All Payment Reminders" />
+            <Button fx:id="sendLimitWarningsButton" mnemonicParsing="false" onAction="#handleSendLimitWarnings" styleClass="action-button" text="Send Credit Limit Warnings" />
+            <Button fx:id="sendCustomMessageButton" mnemonicParsing="false" onAction="#handleSendCustomMessage" styleClass="action-button" text="Send Custom Message" />
+            <Button fx:id="refreshButton" mnemonicParsing="false" onAction="#handleRefresh" styleClass="refresh-button" text="Refresh" />
+         </children>
+         <padding>
+            <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+         </padding>
+      </HBox>
+   </bottom>
+</BorderPane>

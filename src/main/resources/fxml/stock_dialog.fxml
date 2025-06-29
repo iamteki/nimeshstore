@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="450.0" styleClass="dialog-pane" stylesheets="@../css/inventory.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nimesh.controller.StockDialogController">
+   <children>
+      <VBox prefHeight="500.0" prefWidth="450.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <!-- Header -->
+            <HBox alignment="CENTER" prefHeight="60.0" styleClass="dialog-header">
+               <children>
+                  <Label styleClass="dialog-title" text="Update Stock">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            
+            <!-- Product Information Section -->
+            <VBox alignment="CENTER" spacing="10.0" styleClass="stock-dialog-content">
+               <children>
+                  <Label fx:id="productNameLabel" styleClass="product-name" text="Product Name">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="currentStockLabel" styleClass="stock-count" text="Current Stock: 0">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="pricingStrategyLabel" styleClass="strategy-label" text="Pricing Strategy: FIFO">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+               </padding>
+            </VBox>
+            
+            <Separator prefWidth="200.0" />
+            
+            <!-- Stock Operation Form -->
+            <VBox spacing="15.0" styleClass="stock-dialog-content">
+               <children>
+                  <HBox alignment="CENTER_LEFT" spacing="10.0">
+                     <children>
+                        <Label minWidth="80.0" text="Operation:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="operationComboBox" prefWidth="150.0" />
+                     </children>
+                  </HBox>
+                  
+                  <HBox alignment="CENTER_LEFT" spacing="10.0">
+                     <children>
+                        <Label minWidth="80.0" text="Quantity:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="stockChangeField" prefWidth="150.0" promptText="Enter quantity" />
+                     </children>
+                  </HBox>
+                  
+                  <HBox alignment="CENTER_LEFT" spacing="10.0">
+                     <children>
+                        <Label minWidth="80.0" text="Reason:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="reasonField" prefWidth="250.0" promptText="Reason for stock change" />
+                     </children>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+               </padding>
+            </VBox>
+            
+            <Separator prefWidth="200.0" />
+            
+            <!-- Batch Information Section -->
+            <VBox spacing="10.0" styleClass="stock-dialog-content">
+               <children>
+                  <HBox alignment="CENTER_LEFT" spacing="10.0">
+                     <children>
+                        <Label styleClass="section-header" text="Batch Information">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="viewBatchesButton" onAction="#handleViewBatches" styleClass="secondary-button" text="View Details" />
+                     </children>
+                  </HBox>
+                  <TextArea fx:id="batchInfoArea" editable="false" prefRowCount="6" styleClass="batch-info-area" wrapText="true">
+                     <font>
+                        <Font name="Consolas" size="11.0" />
+                     </font>
+                  </TextArea>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="15.0" right="15.0" top="5.0" />
+               </padding>
+            </VBox>
+            
+            <Separator prefWidth="200.0" />
+            
+            <!-- Button Bar -->
+            <HBox alignment="CENTER" prefHeight="60.0" spacing="15.0">
+               <children>
+                  <Button fx:id="updateButton" defaultButton="true" mnemonicParsing="false" onAction="#handleUpdateStock" styleClass="action-button" text="Update Stock" />
+                  <Button fx:id="cancelButton" cancelButton="true" mnemonicParsing="false" onAction="#handleCancel" styleClass="secondary-button" text="Cancel" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

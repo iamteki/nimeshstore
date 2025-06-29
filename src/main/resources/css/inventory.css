@@ -1,0 +1,222 @@
+/* Inventory Management Styles */
+
+/* Top Bar Styles */
+.top-bar {
+    -fx-background-color: white;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);
+}
+
+.page-title {
+    -fx-text-fill: #2c3e50;
+    -fx-font-weight: bold;
+}
+
+/* Search Box */
+.search-field {
+    -fx-background-color: #f5f5f5;
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 4px;
+    -fx-padding: 8px;
+    -fx-min-width: 250px;
+}
+
+.search-field:focused {
+    -fx-border-color: #3498db;
+}
+
+.search-button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+    -fx-background-radius: 4px;
+}
+
+.search-button:hover {
+    -fx-background-color: #2980b9;
+}
+
+/* Tab Pane Styles */
+.tab-pane {
+    -fx-background-color: #f5f7fa;
+    -fx-tab-min-width: 120px;
+    -fx-tab-max-width: 120px;
+    -fx-tab-min-height: 40px;
+}
+
+.tab {
+    -fx-background-color: #ecf0f1;
+    -fx-background-radius: 8px 8px 0 0;
+    -fx-padding: 5 15 5 15;
+}
+
+.tab:selected {
+    -fx-background-color: white;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.tab .tab-label {
+    -fx-text-fill: #7f8c8d;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+.tab:selected .tab-label {
+    -fx-text-fill: #2c3e50;
+}
+
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: #f5f7fa;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 1);
+}
+
+/* Table Styles */
+.table-view {
+    -fx-background-color: white;
+    -fx-background-radius: 8px;
+    -fx-padding: 0;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 1);
+}
+
+.table-view .column-header {
+    -fx-background-color: #34495e;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10 5 10 5;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-alignment: center-left;
+}
+
+.table-view .table-cell {
+    -fx-padding: 8 5 8 5;
+    -fx-border-width: 0;
+}
+
+
+/* Low Stock Table Row Styles */
+.out-of-stock-row {
+    -fx-background-color: #ffcdd2;  /* Light red for out of stock */
+}
+
+.out-of-stock-row:selected {
+    -fx-background-color: #ef5350;  /* Darker red when selected */
+    -fx-text-fill: white;
+}
+
+.critical-stock-row {
+    -fx-background-color: #ffe0b2;  /* Light orange for critical */
+}
+
+.critical-stock-row:selected {
+    -fx-background-color: #ff9800;  /* Darker orange when selected */
+    -fx-text-fill: white;
+}
+
+.low-stock-row {
+    -fx-background-color: #fff9c4;  /* Light yellow for low */
+}
+
+.low-stock-row:selected {
+    -fx-background-color: #ffd54f;  /* Darker yellow when selected */
+    -fx-text-fill: black;  /* Black text on yellow for better contrast */
+}
+
+/* Make sure table cells inside these rows inherit text color */
+.table-row-cell:filled > .table-cell {
+    -fx-text-fill: inherit;
+}
+
+/* Adjust selection style for better visibility */
+.table-view:focused .table-row-cell:filled:selected .table-cell {
+    -fx-text-fill: inherit;
+}
+
+.delete-button{
+     -fx-background-color: #e74c3c;
+}
+
+.edit-button{
+    -fx-background-color: #ff9800;
+}
+
+
+
+/* Add these styles to your inventory.css file */
+
+/* Strategy label styling */
+.strategy-label {
+    -fx-text-fill: #4CAF50;
+    -fx-font-weight: bold;
+}
+
+/* Section header styling */
+.section-header {
+    -fx-text-fill: #2196F3;
+    -fx-font-weight: bold;
+}
+
+/* Batch info area styling */
+.batch-info-area {
+    -fx-background-color: #F5F5F5;
+    -fx-border-color: #E0E0E0;
+    -fx-border-width: 1px;
+    -fx-border-radius: 3px;
+    -fx-background-radius: 3px;
+    -fx-padding: 8px;
+}
+
+.batch-info-area .content {
+    -fx-background-color: #F5F5F5;
+}
+
+/* ComboBox styling to match your existing style */
+.combo-box {
+    -fx-background-color: white;
+    -fx-border-color: #E0E0E0;
+    -fx-border-width: 1px;
+    -fx-border-radius: 3px;
+    -fx-background-radius: 3px;
+}
+
+.combo-box:focused {
+    -fx-border-color: #2196F3;
+    -fx-border-width: 2px;
+}
+
+/* Enhanced product name label */
+.product-name {
+    -fx-text-fill: #1976D2;
+}
+
+/* Enhanced stock count label */
+.stock-count {
+    -fx-text-fill: #388E3C;
+}
+
+/* Ensure consistent spacing in the dialog content */
+.stock-dialog-content {
+    -fx-background-color: white;
+}
+
+/* Style for the view batches button */
+.secondary-button {
+    -fx-background-color: #EEEEEE;
+    -fx-text-fill: #424242;
+    -fx-border-color: #BDBDBD;
+    -fx-border-width: 1px;
+    -fx-border-radius: 3px;
+    -fx-background-radius: 3px;
+    -fx-font-size: 12px;
+    -fx-padding: 5px 10px;
+}
+
+.secondary-button:hover {
+    -fx-background-color: #E0E0E0;
+}
+
+.secondary-button:pressed {
+    -fx-background-color: #D0D0D0;
+}

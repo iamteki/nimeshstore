@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane stylesheets="@../css/settings.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nimesh.controller.SettingsController">
+   <center>
+      <ScrollPane fitToWidth="true" styleClass="settings-scroll-pane">
+         <content>
+            <VBox spacing="20.0" styleClass="settings-container">
+               <children>
+                  <Label styleClass="settings-title" text="System Settings">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  
+                  <!-- User Management Section -->
+                  <VBox spacing="10.0" styleClass="settings-section">
+                     <children>
+                        <Label styleClass="section-header" text="User Management">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label styleClass="section-description" text="Manage system users, their credentials, and roles:" />
+                        
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                           <children>
+                              <Button fx:id="addUserBtn" mnemonicParsing="false" onAction="#handleAddUser" 
+                                     styleClass="action-button" text="Add New User" />
+                              <Button fx:id="refreshUsersBtn" mnemonicParsing="false" onAction="#handleRefreshUsers" 
+                                     styleClass="secondary-button" text="Refresh" />
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" />
+                           </padding>
+                        </HBox>
+                        
+                        <TableView fx:id="usersTable" styleClass="user-table" prefHeight="200.0">
+                           <columns>
+                              <TableColumn fx:id="userIdColumn" text="ID" prefWidth="60.0" />
+                              <TableColumn fx:id="usernameColumn" text="Username" prefWidth="150.0" />
+                              <TableColumn fx:id="userTypeColumn" text="Role" prefWidth="120.0" />
+                              <TableColumn fx:id="actionsColumn" text="Actions" prefWidth="400.0" sortable="false" />
+                           </columns>
+                           <tooltip>
+                              <Tooltip text="Right-click on a user to see more options" />
+                           </tooltip>
+                        </TableView>
+                     </children>
+                     <padding>
+                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                     </padding>
+                  </VBox>
+                  
+                  <Separator />
+                  
+                  <!-- Product Pricing Strategy Section -->
+                  <VBox spacing="10.0" styleClass="settings-section">
+                     <children>
+                        <Label styleClass="section-header" text="Product Pricing Strategy">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label styleClass="section-description" text="Select how product prices are determined when multiple batches with different prices exist:" />
+                        
+                        <VBox spacing="5.0" styleClass="pricing-options">
+                           <children>
+                              <fx:define>
+                                 <ToggleGroup fx:id="pricingStrategyGroup" />
+                              </fx:define>
+                              
+                              <RadioButton fx:id="fifoRadio" text="FIFO (First In, First Out) - Use oldest batch price" 
+                                          toggleGroup="$pricingStrategyGroup" selected="true">
+                                 <tooltip>
+                                    <Tooltip text="Uses the price of the oldest batch first. Best for products with labels matching the original price." />
+                                 </tooltip>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </RadioButton>
+                              
+                              <RadioButton fx:id="lifoRadio" text="LIFO (Last In, First Out) - Use newest batch price" 
+                                          toggleGroup="$pricingStrategyGroup">
+                                 <tooltip>
+                                    <Tooltip text="Uses the price of the newest batch. Best when prices have increased and new stock has new labels." />
+                                 </tooltip>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </RadioButton>
+                              
+                              <RadioButton fx:id="averageRadio" text="Average - Use weighted average of all batch prices" 
+                                          toggleGroup="$pricingStrategyGroup">
+                                 <tooltip>
+                                    <Tooltip text="Uses a weighted average price across all available batches. Good for mixed inventory." />
+                                 </tooltip>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </RadioButton>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="20.0" right="10.0" top="5.0" />
+                           </padding>
+                        </VBox>
+                        
+                        <HBox alignment="CENTER_RIGHT" spacing="10.0">
+                           <children>
+                              <Button fx:id="savePricingStrategyBtn" mnemonicParsing="false" onAction="#handleSavePricingStrategy" 
+                                     styleClass="save-button" text="Save Pricing Strategy" />
+                           </children>
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                     </padding>
+                  </VBox>
+                  
+                  <Separator />
+                  
+                  <!-- Inventory Batch Management Section -->
+                  <VBox spacing="10.0" styleClass="settings-section">
+                     <children>
+                        <Label styleClass="section-header" text="Inventory Batch Management">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label styleClass="section-description" text="Synchronize inventory batches with product stock levels:" />
+                        
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                           <children>
+                              <Button fx:id="synchronizeBatchesBtn" mnemonicParsing="false" onAction="#handleSynchronizeBatches" 
+                                     styleClass="action-button" text="Synchronize Batches" />
+                              <Label text="This will create batches for any unbatched inventory and update product stock levels." />
+                           </children>
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                     </padding>
+                  </VBox>
+                  
+               </children>
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </center>
+</BorderPane>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane stylesheets="@../css/batch_management.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="com.nimesh.controller.BatchManagementController">
+   
+   <!-- Top header section like dashboard -->
+   <top>
+      <VBox>
+         <children>
+            <!-- Header bar -->
+            <HBox alignment="CENTER_LEFT" prefHeight="70.0" spacing="20.0" styleClass="top-bar">
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
+               <children>
+                  <Label fx:id="pageTitleLabel" styleClass="page-title" text="Product Batch Management">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Pane HBox.hgrow="ALWAYS" />
+                  <Label fx:id="dateTimeLabel" styleClass="datetime-label" text="Wednesday, March 26, 2025 | 08:35 PM">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            
+            <!-- Controls section -->
+            <VBox spacing="10" styleClass="controls-section">
+               <padding>
+                  <Insets bottom="15.0" left="20.0" right="20.0" top="15.0"/>
+               </padding>
+               <children>
+                  <HBox spacing="15" alignment="CENTER_LEFT">
+                     <children>
+                        <Label text="Select Product:" styleClass="control-label"/>
+                        
+                        <!-- Search field with clear button inside a stack pane for proper positioning -->
+                        <StackPane styleClass="search-field-container">
+                           <TextField fx:id="productSearchField" promptText="Search product..." prefWidth="250" styleClass="search-field" />
+                           <Label fx:id="clearSearchButton" text="✕" styleClass="clear-button" 
+                                   StackPane.alignment="CENTER_RIGHT">
+                              <StackPane.margin>
+                                 <Insets right="10.0" />
+                              </StackPane.margin>
+                           </Label>
+                        </StackPane>
+                        
+                        <ComboBox fx:id="productComboBox" prefWidth="250" prefHeight="35">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </ComboBox>
+                        <Pane HBox.hgrow="ALWAYS"/>
+                        <Button fx:id="addBatchButton" text="Add New Batch"/>
+                        <Button fx:id="editBatchButton" text="Edit Selected Batch"/>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </top>
+   
+   <center>
+      <TableView fx:id="batchTable" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="batchNumberColumn" text="Batch Number" prefWidth="170"/>
+          <TableColumn fx:id="purchaseDateColumn" text="Purchase Date" prefWidth="170"/>
+          <TableColumn fx:id="expiryDateColumn" text="Expiry Date" prefWidth="160"/>
+          <TableColumn fx:id="buyingPriceColumn" text="Buying Price" prefWidth="100"/>
+          <TableColumn fx:id="sellingPriceColumn" text="Selling Price" prefWidth="100"/>
+          <TableColumn fx:id="wholesalePriceColumn" text="Wholesale Price" prefWidth="120"/>
+          <TableColumn fx:id="initialQuantityColumn" text="Initial Qty" prefWidth="90"/>
+          <TableColumn fx:id="remainingQuantityColumn" text="Remaining Qty" prefWidth="200"/>
+        </columns>
+        <BorderPane.margin>
+          <Insets top="10.0" />
+        </BorderPane.margin>
+      </TableView>
+   </center>
+</BorderPane>

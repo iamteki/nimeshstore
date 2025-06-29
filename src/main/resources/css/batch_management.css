@@ -1,0 +1,359 @@
+/* Modern Batch Management Screen Styles - With Dashboard Header */
+
+/* Root styling */
+.root {
+    -fx-background-color: #f5f7fa;
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-font-size: 14px;
+}
+
+/* Top bar styling - Same as dashboard */
+.top-bar {
+    -fx-background-color: white;
+    -fx-border-color: #e1e8ed;
+    -fx-border-width: 0 0 1px 0;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 4, 0, 0, 1);
+}
+
+/* Page title in header */
+.page-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+/* Date-time label styling - Same as dashboard */
+.datetime-label {
+    -fx-text-fill: #7f8c8d;
+    -fx-font-size: 14px;
+}
+
+/* User label styling - Same as dashboard */
+.user-label {
+    -fx-text-fill: #2c3e50;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+/* Controls section styling */
+.controls-section {
+    -fx-background-color: white;
+    -fx-border-color: #e1e8ed;
+    -fx-border-width: 0 0 1px 0;
+}
+
+/* Control labels styling */
+.control-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #495057;
+    -fx-font-weight: 500;
+}
+
+/* Search field container */
+.search-field-container {
+    -fx-background-color: white;
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-min-height: 35px;
+    -fx-pref-height: 35px;
+}
+
+.search-field-container:focused-within {
+    -fx-border-color: #3498db;
+    -fx-effect: dropshadow(three-pass-box, rgba(52,152,219,0.3), 4, 0, 0, 0);
+}
+
+/* Search field styling */
+.search-field {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-padding: 8px 30px 8px 12px; /* Extra padding on right for clear button */
+    -fx-font-size: 14px;
+    -fx-prompt-text-fill: #adb5bd;
+}
+
+.search-field:focused {
+    -fx-background-color: transparent;
+}
+
+/* Clear button styling - positioned over the text field */
+.clear-button {
+    -fx-text-fill: #e74c3c; /* Red color for better visibility */
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-opacity: 0.8;
+}
+
+.clear-button:hover {
+    -fx-text-fill: #c0392b; /* Darker red on hover */
+    -fx-opacity: 1.0;
+    -fx-effect: dropshadow(three-pass-box, rgba(231,76,60,0.3), 4, 0, 0, 0);
+}
+
+/* ComboBox styling - Reduced size */
+.combo-box {
+    -fx-background-color: white;
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-padding: 8px 12px;
+    -fx-font-size: 14px;
+    -fx-pref-width: 250px; /* Reduced from 300px */
+    -fx-max-width: 250px;
+}
+
+.combo-box:focused {
+    -fx-border-color: #3498db;
+    -fx-background-color: #f8f9fa;
+    -fx-effect: dropshadow(three-pass-box, rgba(52,152,219,0.3), 4, 0, 0, 0);
+}
+
+.combo-box:hover {
+    -fx-border-color: #adb5bd;
+}
+
+/* ComboBox arrow styling */
+.combo-box .arrow-button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0 6px 6px 0;
+    -fx-border-color: transparent;
+}
+
+.combo-box .arrow {
+    -fx-background-color: #6c757d;
+    -fx-shape: "M 0 0 L 4 4 L 8 0 Z";
+    -fx-scale-shape: true;
+    -fx-padding: 4px;
+}
+
+/* Button styling - matching POS style */
+.button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 18px;
+    -fx-background-radius: 6px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(52,152,219,0.3), 4, 0, 0, 2);
+}
+
+.button:hover {
+    -fx-background-color: #2980b9;
+    -fx-effect: dropshadow(three-pass-box, rgba(52,152,219,0.4), 6, 0, 0, 3);
+}
+
+.button:pressed {
+    -fx-background-color: #1565c0;
+}
+
+/* Edit button variant */
+#editBatchButton {
+    -fx-background-color: #ff9800;
+    -fx-effect: dropshadow(three-pass-box, rgba(255,152,0,0.3), 4, 0, 0, 2);
+}
+
+#editBatchButton:hover {
+    -fx-background-color: #f57c00;
+    -fx-effect: dropshadow(three-pass-box, rgba(255,152,0,0.4), 6, 0, 0, 3);
+}
+
+#editBatchButton:pressed {
+    -fx-background-color: #ef6c00;
+}
+
+/* Modern Table Styling - Same as POS with dark header */
+.table-view {
+    -fx-background-color: white;
+    -fx-background-radius: 8px;
+    -fx-border-color: #e1e8ed;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 8, 0, 0, 2);
+    -fx-padding: 0;
+}
+
+/* Table header styling - Dark like POS */
+.table-view .column-header-background {
+    -fx-background-color: #34495e;
+    -fx-border-color: #34495e;
+    -fx-border-width: 0;
+    -fx-background-radius: 8px 8px 0 0;
+}
+
+.table-view .column-header {
+    -fx-background-color: #34495e;
+    -fx-border-color: #2c3e50;
+    -fx-border-width: 0 1px 0 0;
+    -fx-padding: 12px 8px;
+}
+
+.table-view .column-header .label {
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-text-fill: white;
+    -fx-alignment: center-left;
+}
+
+/* Table rows styling - Same as POS */
+.table-view .table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: #f1f3f4;
+    -fx-border-width: 0 0 1px 0;
+    -fx-padding: 0;
+}
+
+.table-view .table-row-cell:odd {
+    -fx-background-color: #fafbfc;
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: #e3f2fd;
+    -fx-text-fill: #1976d2;
+}
+
+.table-view .table-row-cell:hover {
+    -fx-background-color: #f5f5f5;
+}
+
+.table-view .table-row-cell:selected:hover {
+    -fx-background-color: #bbdefb;
+}
+
+/* Table cells styling - Same as POS */
+.table-view .table-cell {
+    -fx-padding: 6px 4px;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-font-size: 13px;
+    -fx-text-fill: #495057;
+    -fx-alignment: center-left;
+}
+
+/* Numeric columns alignment */
+#buyingPriceColumn .table-cell,
+#sellingPriceColumn .table-cell,
+#wholesalePriceColumn .table-cell,
+#initialQuantityColumn .table-cell,
+#remainingQuantityColumn .table-cell {
+    -fx-alignment: center-right;
+    -fx-font-weight: 500;
+}
+
+/* Table selection styling - Same as POS */
+.table-view:focused .table-row-cell:selected {
+    -fx-background-color: #2196f3;
+    -fx-text-fill: white;
+}
+
+.table-view:focused .table-row-cell:selected .table-cell {
+    -fx-text-fill: white;
+}
+
+/* Scrollbar styling - Same as POS */
+.table-view .scroll-bar:vertical {
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-pref-width: 12px;
+}
+
+.table-view .scroll-bar:vertical .track {
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: transparent;
+    -fx-background-radius: 6px;
+    -fx-border-radius: 6px;
+}
+
+.table-view .scroll-bar:vertical .thumb {
+    -fx-background-color: #ced4da;
+    -fx-background-radius: 6px;
+    -fx-border-radius: 6px;
+}
+
+.table-view .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: #adb5bd;
+}
+
+.table-view .scroll-bar:vertical .thumb:pressed {
+    -fx-background-color: #6c757d;
+}
+
+/* Empty table placeholder */
+.table-view .placeholder {
+    -fx-background-color: transparent;
+}
+
+.table-view .placeholder .label {
+    -fx-font-size: 16px;
+    -fx-text-fill: #6c757d;
+    -fx-font-style: italic;
+}
+
+/* Focus styles for accessibility - Same as POS */
+.combo-box:focused,
+.button:focused {
+    -fx-effect: dropshadow(three-pass-box, rgba(52,152,219,0.6), 8, 0, 0, 0);
+}
+
+.table-view:focused {
+    -fx-background-color: white;
+    -fx-effect: dropshadow(three-pass-box, rgba(52, 152, 219, 0.3), 8, 0, 0, 0);
+}
+
+/* Status indicators for different batch states */
+.expired-row {
+    -fx-background-color: #ffebee !important;
+}
+
+.expired-row:hover {
+    -fx-background-color: #ffcdd2 !important;
+}
+
+.expired-row:selected {
+    -fx-background-color: #f8bbd9 !important;
+}
+
+.low-stock-row {
+    -fx-background-color: #fff3e0 !important;
+}
+
+.low-stock-row:hover {
+    -fx-background-color: #ffe0b2 !important;
+}
+
+.low-stock-row:selected {
+    -fx-background-color: #ffcc80 !important;
+}
+
+.out-of-stock-row {
+    -fx-background-color: #fce4ec !important;
+}
+
+.out-of-stock-row:hover {
+    -fx-background-color: #f8bbd9 !important;
+}
+
+.out-of-stock-row:selected {
+    -fx-background-color: #f48fb1 !important;
+}
+
+/* Add subtle animation to buttons */
+.button {
+    -fx-transition: all 0.2s ease;
+}
+
+/* Improve spacing between sections */
+.border-pane > .top {
+    -fx-spacing: 0;
+}
+
+/* Margin for table from header */
+.border-pane > .center {
+    -fx-padding: 0 20 20 20;
+}

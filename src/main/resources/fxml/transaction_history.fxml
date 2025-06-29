@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" stylesheets="@../css/dialog.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nimesh.controller.TransactionHistoryController">
+   <top>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER_LEFT" styleClass="header-box">
+               <children>
+                  <VBox>
+                     <children>
+                        <Label styleClass="dialog-title" text="Transaction History">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label styleClass="dialog-subtitle" text="View all purchases and transactions">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" styleClass="customer-info-box">
+               <children>
+                  <Label text="Customer:">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="customerNameLabel" styleClass="label-value" text="Customer Name">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="50.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label text="Total Purchases:">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="totalPurchasesLabel" styleClass="label-value" text="LKR 0.00">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <VBox spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER_LEFT" spacing="10.0">
+               <children>
+                  <Label styleClass="section-title" text="Invoices">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="reprintButton" mnemonicParsing="false" onAction="#handleReprintInvoice" styleClass="action-button" text="Reprint Selected Invoice">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <TableView fx:id="invoiceTable" prefHeight="200.0" VBox.vgrow="ALWAYS">
+              <columns>
+                <TableColumn fx:id="invoiceNumberColumn" prefWidth="150.0" text="Invoice #" />
+                <TableColumn fx:id="dateColumn" prefWidth="200.0" text="Date" />
+                  <TableColumn fx:id="paymentMethodColumn" prefWidth="100.0" text="Payment" />
+                  <TableColumn fx:id="itemCountColumn" prefWidth="75.0" text="Items" />
+                  <TableColumn fx:id="totalAmountColumn" prefWidth="150.0" text="Total" />
+              </columns>
+            </TableView>
+            <Label styleClass="section-title" text="Invoice Items">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <TableView fx:id="itemsTable" prefHeight="200.0" VBox.vgrow="ALWAYS">
+              <columns>
+                <TableColumn fx:id="productNameColumn" prefWidth="350.0" text="Product" />
+                <TableColumn fx:id="quantityColumn" prefWidth="100.0" text="Quantity" />
+                  <TableColumn fx:id="unitPriceColumn" prefWidth="150.0" text="Unit Price" />
+                  <TableColumn fx:id="itemTotalColumn" prefWidth="150.0" text="Total" />
+              </columns>
+            </TableView>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+         </padding>
+      </VBox>
+   </center>
+</BorderPane>

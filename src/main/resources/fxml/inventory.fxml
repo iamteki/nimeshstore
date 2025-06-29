@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="inventoryPane" prefHeight="700.0" prefWidth="950.0" stylesheets="@../css/inventory.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nimesh.controller.InventoryController">
+   <center>
+      <TabPane prefHeight="200.0" prefWidth="200.0" styleClass="tab-pane" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab text="Products">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <BorderPane layoutX="285.0" layoutY="134.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <top>
+                              <HBox alignment="CENTER_LEFT" prefHeight="50.0" spacing="10.0" styleClass="search-bar" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Label text="Search:" />
+                                    <TextField fx:id="searchField" promptText="Search Products..." styleClass="search-field" HBox.hgrow="ALWAYS" />
+                                    <Button fx:id="searchButton" mnemonicParsing="false" onAction="#handleSearch" styleClass="search-button" text="Search" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                                 </padding>
+                              </HBox>
+                           </top>
+                           <center>
+                              <TableView fx:id="productTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                <columns>
+                                  <TableColumn fx:id="idColumn" prefWidth="50.0" text="ID" />
+                                  <TableColumn fx:id="nameColumn" prefWidth="150.0" text="Product Name" />
+                                    <TableColumn fx:id="barcodeColumn" prefWidth="100.0" text="Barcode" />
+                                    <TableColumn fx:id="categoryColumn" prefWidth="100.0" text="Category" />
+                                    <TableColumn fx:id="unitColumn" prefWidth="80.0" text="Unit" />
+                                    <TableColumn fx:id="buyingPriceColumn" prefWidth="100.0" text="Buying Price" />
+                                    <TableColumn fx:id="sellingPriceColumn" prefWidth="100.0" text="Selling Price" />
+                                    <TableColumn fx:id="wholesalePriceColumn" prefWidth="100.0" text="Wholesale Price" />
+                                    <TableColumn fx:id="stockColumn" prefWidth="70.0" text="Stock" />
+                                    <TableColumn fx:id="reorderLevelColumn" prefWidth="70.0" text="Reorder" />
+                                </columns>
+                              </TableView>
+                           </center>
+                           <bottom>
+                              <HBox alignment="CENTER" prefHeight="50.0" spacing="10.0" styleClass="button-bar" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Button fx:id="addProductButton" mnemonicParsing="false" onAction="#handleAddProduct" styleClass="action-button" text="Add Product">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button fx:id="editProductButton" mnemonicParsing="false" onAction="#handleEditProduct" styleClass="action-button, edit-button" text="Edit Product" />
+                                    <Button fx:id="deleteProductButton" mnemonicParsing="false" onAction="#handleDeleteProduct" styleClass="action-button, delete-button" text="Delete Product" />
+                                    <Separator orientation="VERTICAL" />
+                                    <Button fx:id="updateStockButton" mnemonicParsing="false" onAction="#handleUpdateStock" styleClass="action-button, stock-button" text="Update Stock" />
+                                 </children>
+                              </HBox>
+                           </bottom>
+                        </BorderPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Categories">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <BorderPane layoutX="254.0" layoutY="133.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <center>
+                              <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <TableView fx:id="categoryTable" prefHeight="539.0" prefWidth="450.0" HBox.hgrow="ALWAYS">
+                                      <columns>
+                                        <TableColumn fx:id="categoryIdColumn" prefWidth="75.0" text="ID" />
+                                        <TableColumn fx:id="categoryNameColumn" prefWidth="150.0" text="Category Name" />
+                                          <TableColumn fx:id="categoryDescColumn" prefWidth="250.0" text="Description" />
+                                      </columns>
+                                    </TableView>
+                                    <VBox alignment="TOP_CENTER" prefHeight="539.0" prefWidth="300.0" spacing="15.0" styleClass="category-form">
+                                       <children>
+                                          <Label styleClass="form-title" text="Category Management">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Separator prefWidth="200.0" />
+                                          <GridPane hgap="10.0" vgap="15.0">
+                                            <columnConstraints>
+                                              <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="144.0" minWidth="10.0" prefWidth="100.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.0" minWidth="10.0" prefWidth="180.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <Label text="Category Name:" />
+                                                <TextField fx:id="categoryNameField" GridPane.columnIndex="1" />
+                                                <Label text="Description:" GridPane.rowIndex="1" />
+                                                <TextField fx:id="categoryDescField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                             </children>
+                                          </GridPane>
+                                          <HBox alignment="CENTER" spacing="10.0">
+                                             <children>
+                                                <Button fx:id="addCategoryButton" mnemonicParsing="false" onAction="#handleAddCategory" styleClass="action-button" text="Add Category" />
+                                                <Button fx:id="updateCategoryButton" mnemonicParsing="false" onAction="#handleUpdateCategory" styleClass="action-button" text="Update" />
+                                                <Button fx:id="deleteCategoryButton" mnemonicParsing="false" onAction="#handleDeleteCategory" styleClass="action-button, delete-button" text="Delete" />
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets top="20.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <Button fx:id="clearCategoryButton" mnemonicParsing="false" onAction="#handleClearCategory" styleClass="secondary-button" text="Clear Fields" />
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="20.0" left="10.0" right="10.0" top="20.0" />
+                                       </padding>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </center>
+                        </BorderPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Low Stock Items">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <BorderPane layoutX="254.0" layoutY="133.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <center>
+                              <TableView fx:id="lowStockTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                 <columns>
+                                    <TableColumn fx:id="lowStockIdColumn" prefWidth="50.0" text="ID" />
+                                    <TableColumn fx:id="lowStockNameColumn" prefWidth="180.0" text="Product Name" />
+                                    <TableColumn fx:id="lowStockCategoryColumn" prefWidth="120.0" text="Category" />
+                                    <TableColumn fx:id="lowStockUnitColumn" prefWidth="80.0" text="Unit" />
+                                    <TableColumn fx:id="lowStockCurrentColumn" prefWidth="100.0" text="Current Stock" />
+                                    <TableColumn fx:id="lowStockReorderColumn" prefWidth="100.0" text="Reorder Level" />
+                                    <TableColumn fx:id="lowStockStatusColumn" prefWidth="100.0" text="Status" />
+                                 </columns>
+                              </TableView>
+                           </center>
+                           <top>
+                              <HBox alignment="CENTER_LEFT" prefHeight="50.0" styleClass="low-stock-header" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Label styleClass="low-stock-label" text="Items Below Reorder Level">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Button fx:id="refreshLowStockButton" mnemonicParsing="false" onAction="#handleRefreshLowStock" styleClass="refresh-button" text="Refresh" />
+                                       </children>
+                                       <padding>
+                                          <Insets right="20.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets left="20.0" />
+                                 </padding>
+                              </HBox>
+                           </top>
+                           <bottom>
+                              <HBox alignment="CENTER" prefHeight="50.0" spacing="15.0" styleClass="button-bar" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Button fx:id="orderSelectedButton" mnemonicParsing="false" onAction="#handleOrderSelected" styleClass="action-button" text="Order Selected Items" />
+                                    <Button fx:id="orderAllButton" mnemonicParsing="false" onAction="#handleOrderAllLowStock" styleClass="action-button" text="Order All Low Stock Items" />
+                                 </children>
+                              </HBox>
+                           </bottom>
+                        </BorderPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+</BorderPane>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox spacing="15.0" stylesheets="@../css/dialog.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nimesh.controller.UserDialogController">
+   <children>
+      <Label fx:id="dialogTitle" styleClass="dialog-title" text="Add New User">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      
+      <GridPane hgap="10.0" vgap="15.0" styleClass="form-grid">
+         <children>
+            <Label text="Username:" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="form-label" />
+            <TextField fx:id="usernameField" promptText="Enter username" GridPane.columnIndex="1" GridPane.rowIndex="0" styleClass="form-field" prefWidth="200.0" />
+            
+            <Label text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="form-label" />
+            <PasswordField fx:id="passwordField" promptText="Enter password" GridPane.columnIndex="1" GridPane.rowIndex="1" styleClass="form-field" prefWidth="200.0" />
+            
+            <Label text="Confirm Password:" GridPane.columnIndex="0" GridPane.rowIndex="2" styleClass="form-label" />
+            <PasswordField fx:id="confirmPasswordField" promptText="Confirm password" GridPane.columnIndex="1" GridPane.rowIndex="2" styleClass="form-field" prefWidth="200.0" />
+            
+            <Label text="Role:" GridPane.columnIndex="0" GridPane.rowIndex="3" styleClass="form-label" />
+            <ComboBox fx:id="userTypeCombo" promptText="Select role" GridPane.columnIndex="1" GridPane.rowIndex="3" styleClass="form-combo" prefWidth="200.0" />
+            
+            <CheckBox fx:id="changePasswordOnNextLoginCheck" text="Require password change on next login" 
+                     GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="4" styleClass="form-checkbox" />
+         </children>
+         <padding>
+            <Insets bottom="5.0" top="5.0" />
+         </padding>
+      </GridPane>
+      
+      <HBox alignment="CENTER_RIGHT" spacing="10.0" styleClass="button-box">
+         <children>
+            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#handleCancel" styleClass="secondary-button" text="Cancel" />
+            <Button fx:id="saveButton" mnemonicParsing="false" onAction="#handleSave" styleClass="primary-button" text="Save User" />
+         </children>
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</VBox>

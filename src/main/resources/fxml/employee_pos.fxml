@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="768.0" prefWidth="1200.0" stylesheets="@../css/pos.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nimesh.controller.POSController">
+   <top>
+      <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="200.0" styleClass="top-bar" spacing="15.0">
+         <padding>
+            <Insets left="20.0" right="20.0" />
+         </padding>
+         <children>
+            <Label styleClass="logo-text" text="NIMESH STORE POS">
+               <font>
+                  <Font name="System Bold" size="22.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </Label>
+            <Pane HBox.hgrow="ALWAYS" />
+            <Label fx:id="dateTimeLabel" styleClass="datetime-label" text="Wednesday, March 26, 2025 | 08:35 PM">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="15.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="userLabel" styleClass="user-label" text="Employee">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+               <graphic>
+                  <Label styleClass="user-icon" text="👤" />
+               </graphic>
+            </Label>
+            <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#handleLogout" styleClass="logout-button" text="Logout">
+               <graphic>
+                  <Label styleClass="logout-icon" text="🚪" />
+               </graphic>
+               <padding>
+                  <Insets bottom="8.0" left="15.0" right="15.0" top="8.0" />
+               </padding>
+            </Button>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <!-- Embed your POS content directly instead of using fx:include -->
+      <fx:include source="pos.fxml" />
+   </center>
+</BorderPane>

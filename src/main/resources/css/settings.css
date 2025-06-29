@@ -1,0 +1,280 @@
+/* Simple Modern Settings Screen Styles for JavaFX */
+/* Root styling */
+.root {
+    -fx-background-color: #f5f7fa;
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-font-size: 14px;
+}
+
+/* Main container */
+.settings-container {
+    -fx-background-color: transparent;
+    -fx-spacing: 25px;
+}
+
+/* Scroll pane styling */
+.settings-scroll-pane {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.settings-scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.settings-scroll-pane .scroll-bar {
+    -fx-background-color: #f5f7fa;
+}
+
+/* Settings title */
+.settings-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+    -fx-padding: 20px 0 0 0;
+}
+
+/* Settings sections */
+.settings-section {
+    -fx-background-color: white;
+    -fx-background-radius: 12px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 8, 0, 0, 2);
+    -fx-border-color: #e1e8ed;
+    -fx-border-width: 1px;
+    -fx-border-radius: 12px;
+}
+
+/* Section headers */
+.section-header {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+/* Section descriptions */
+.section-description {
+    -fx-font-size: 14px;
+    -fx-text-fill: #7f8c8d;
+    -fx-wrap-text: true;
+}
+
+/* User table styling */
+.user-table {
+    -fx-background-color: white;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+}
+
+.user-table .table-view {
+    -fx-background-color: white;
+    -fx-table-cell-border-color: #f0f0f0;
+}
+
+.user-table .column-header-background {
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 0 0 1px 0;
+}
+
+.user-table .column-header {
+    -fx-background-color: transparent;
+    -fx-font-weight: bold;
+    -fx-text-fill: #495057;
+    -fx-padding: 10px 8px;
+}
+
+.user-table .table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: #f0f0f0;
+    -fx-border-width: 0 0 1px 0;
+    -fx-padding: 5px;
+}
+
+.user-table .table-row-cell:selected {
+    -fx-background-color: #e3f2fd;
+    -fx-text-fill: #1976d2;
+}
+
+.user-table .table-row-cell:hover {
+    -fx-background-color: #f5f5f5;
+}
+
+.user-table .table-cell {
+    -fx-text-fill: #333333;
+    -fx-alignment: center-left;
+    -fx-padding: 8px;
+}
+
+/* User action buttons in table */
+.user-action-button {
+    -fx-font-size: 12px;
+    -fx-padding: 4px 8px;
+    -fx-background-radius: 4px;
+    -fx-cursor: hand;
+    -fx-text-fill: white;
+    -fx-font-weight: normal;
+}
+
+.edit-user-button {
+    -fx-background-color: #2196f3;
+}
+
+.edit-user-button:hover {
+    -fx-background-color: #1976d2;
+}
+
+.delete-user-button {
+    -fx-background-color: #f44336;
+}
+
+.delete-user-button:hover {
+    -fx-background-color: #d32f2f;
+}
+
+.reset-password-button {
+    -fx-background-color: #ff9800;
+}
+
+.reset-password-button:hover {
+    -fx-background-color: #f57c00;
+}
+
+/* Pricing options container */
+.pricing-options {
+    -fx-background-color: #f8f9fa;
+    -fx-background-radius: 8px;
+    -fx-border-color: #e9ecef;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+}
+
+/* Radio button styling */
+.radio-button {
+    -fx-font-size: 14px;
+    -fx-text-fill: #495057;
+    -fx-spacing: 10px;
+}
+
+.radio-button:hover {
+    -fx-background-color: #f1f3f4;
+    -fx-background-radius: 6px;
+}
+
+.radio-button:selected {
+    -fx-background-color: #e3f2fd;
+    -fx-background-radius: 6px;
+    -fx-text-fill: #1976d2;
+    -fx-font-weight: bold;
+}
+
+/* Radio button dot styling */
+.radio-button .radio {
+    -fx-background-color: white;
+    -fx-border-color: #ced4da;
+    -fx-border-width: 2px;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-padding: 3px;
+}
+
+.radio-button:selected .radio {
+    -fx-border-color: #2196f3;
+}
+
+.radio-button .radio .dot {
+    -fx-background-color: #2196f3;
+    -fx-background-radius: 5px;
+    -fx-padding: 3px;
+}
+
+/* Button styling */
+.save-button {
+    -fx-background-color: #2196f3;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 6px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(33,150,243,0.3), 4, 0, 0, 2);
+}
+
+.save-button:hover {
+    -fx-background-color: #1976d2;
+    -fx-effect: dropshadow(three-pass-box, rgba(33,150,243,0.4), 6, 0, 0, 3);
+}
+
+.save-button:pressed {
+    -fx-background-color: #1565c0;
+}
+
+/* Action button styling */
+.action-button {
+    -fx-background-color: #4caf50;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 6px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(76,175,80,0.3), 4, 0, 0, 2);
+}
+
+.action-button:hover {
+    -fx-background-color: #43a047;
+    -fx-effect: dropshadow(three-pass-box, rgba(76,175,80,0.4), 6, 0, 0, 3);
+}
+
+.action-button:pressed {
+    -fx-background-color: #388e3c;
+}
+
+/* Secondary button styling */
+.secondary-button {
+    -fx-background-color: #757575;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 6px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(117,117,117,0.3), 4, 0, 0, 2);
+}
+
+.secondary-button:hover {
+    -fx-background-color: #616161;
+    -fx-effect: dropshadow(three-pass-box, rgba(117,117,117,0.4), 6, 0, 0, 3);
+}
+
+.secondary-button:pressed {
+    -fx-background-color: #424242;
+}
+
+/* Separator styling */
+.separator .line {
+    -fx-background-color: #e0e0e0;
+    -fx-pref-height: 1px;
+}
+
+/* Tooltip styling */
+.tooltip {
+    -fx-background-color: #37474f;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-padding: 6px 10px;
+    -fx-background-radius: 4px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 4, 0, 0, 2);
+}
+
+/* Focus states */
+.radio-button:focused {
+    -fx-background-color: #e8f4fd;
+    -fx-background-radius: 6px;
+}
+
+.save-button:focused,
+.action-button:focused,
+.secondary-button:focused {
+    -fx-effect: dropshadow(three-pass-box, rgba(33,150,243,0.6), 8, 0, 0, 0);
+}

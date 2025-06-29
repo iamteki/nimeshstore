@@ -1,0 +1,98 @@
+/* dialog.css */
+.root {
+    -fx-background-color: white;
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.dialog-title {
+    -fx-text-fill: #2c3e50;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+    -fx-padding: 0 0 10 0;
+}
+
+.save-button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.save-button:hover {
+    -fx-background-color: #2980b9;
+}
+
+.cancel-button {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.cancel-button:hover {
+    -fx-background-color: #c0392b;
+}
+
+.text-field, .combo-box {
+    -fx-background-color: #f9f9f9;
+    -fx-border-color: #ddd;
+    -fx-border-radius: 3px;
+    -fx-padding: 5px;
+}
+
+.text-field:focused, .combo-box:focused {
+    -fx-border-color: #3498db;
+}
+
+.check-box .box {
+    -fx-background-color: #f9f9f9;
+    -fx-border-color: #ddd;
+    -fx-border-radius: 3px;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: white;
+}
+
+.check-box:selected .box {
+    -fx-background-color: #3498db;
+}
+
+.radio-button .radio {
+    -fx-background-color: #f9f9f9;
+    -fx-border-color: #ddd;
+    -fx-border-radius: 15px;
+}
+
+.radio-button:selected .dot {
+    -fx-background-color: white;
+}
+
+.radio-button:selected .radio {
+    -fx-background-color: #3498db;
+}
+
+/* Add these styles to your dialog.css file */
+
+.action-button {
+    -fx-background-color: #2196F3;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 5px 10px;
+    -fx-border-radius: 3px;
+    -fx-background-radius: 3px;
+}
+
+.action-button:hover {
+    -fx-background-color: #0d8bf2;
+    -fx-cursor: hand;
+}
+
+.action-button:pressed {
+    -fx-background-color: #0b7ad1;
+}
+
+.action-button:disabled {
+    -fx-background-color: #90CAF9;
+    -fx-opacity: 0.7;
+}

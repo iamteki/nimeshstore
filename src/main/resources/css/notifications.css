@@ -1,0 +1,124 @@
+/* Notifications Screen Styles */
+.root {
+    -fx-background-color: #f5f7fa;
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* Title Section */
+.page-title {
+    -fx-text-fill: #2c3e50;
+    -fx-font-weight: bold;
+    -fx-font-size: 24px;
+}
+
+.page-subtitle {
+    -fx-text-fill: #7f8c8d;
+    -fx-font-size: 14px;
+}
+
+/* Status Bar */
+.status-bar {
+    -fx-background-color: white;
+    -fx-background-radius: 5px;
+    -fx-padding: 10px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);
+}
+
+.status-label {
+    -fx-font-weight: bold;
+}
+
+.status-enabled {
+    -fx-text-fill: #2ecc71;
+}
+
+.status-disabled {
+    -fx-text-fill: #e74c3c;
+}
+
+/* Table Styles */
+.table-view {
+    -fx-background-color: white;
+    -fx-background-radius: 5px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);
+}
+
+.table-view .column-header {
+    -fx-background-color: #34495e;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10 5 10 5;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-alignment: center-left;
+}
+
+.table-view .table-cell {
+    -fx-padding: 8 5 8 5;
+    -fx-border-width: 0;
+}
+
+.table-view .table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: #ecf0f1;
+    -fx-border-width: 0 0 1 0;
+}
+
+.table-view .table-row-cell:odd {
+    -fx-background-color: #f9f9f9;
+}
+
+/* Status Cell Styles */
+.status-success {
+    -fx-text-fill: #2ecc71;
+    -fx-font-weight: bold;
+}
+
+.status-failed {
+    -fx-text-fill: #e74c3c;
+    -fx-font-weight: bold;
+}
+
+.status-simulated {
+    -fx-text-fill: #3498db;
+    -fx-font-weight: bold;
+}
+
+/* Bottom Bar Styles */
+.bottom-bar {
+    -fx-background-color: white;
+    -fx-border-color: #ecf0f1;
+    -fx-border-width: 1 0 0 0;
+}
+
+.action-button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-padding: 10px 15px;
+}
+
+.action-button:hover {
+    -fx-background-color: #2980b9;
+}
+
+.refresh-button {
+    -fx-background-color: #2ecc71;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-padding: 10px 15px;
+}
+
+.refresh-button:hover {
+    -fx-background-color: #27ae60;
+}
+
+.combo-box {
+    -fx-background-color: white;
+    -fx-border-color: #ddd;
+    -fx-border-radius: 3px;
+}

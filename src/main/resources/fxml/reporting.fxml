@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="reportsPane" prefHeight="700.0" prefWidth="950.0" stylesheets="@../css/reports.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nimesh.controller.ReportingController">
+   <center>
+      <TabPane prefHeight="200.0" prefWidth="200.0" styleClass="tab-pane" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab text="Sales Reports">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <BorderPane layoutX="285.0" layoutY="134.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <top>
+                              <GridPane hgap="10.0" vgap="10.0" BorderPane.alignment="CENTER">
+                                <columnConstraints>
+                                  <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="120.0" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+                                    <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="120.0" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+                                    <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="120.0" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label text="Date Range:" />
+                                    <ComboBox fx:id="salesDateRangeCombo" prefWidth="150.0" GridPane.columnIndex="1" />
+                                    <Label text="Start Date:" GridPane.columnIndex="2" />
+                                    <DatePicker fx:id="salesStartDatePicker" GridPane.columnIndex="3" />
+                                    <Label text="End Date:" GridPane.columnIndex="4" />
+                                    <DatePicker fx:id="salesEndDatePicker" GridPane.columnIndex="5" />
+                                    <Label text="Report Type:" GridPane.rowIndex="1" />
+                                    <ComboBox fx:id="salesReportTypeCombo" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Button fx:id="generateSalesReportBtn" mnemonicParsing="false" onAction="#handleGenerateSalesReport" styleClass="action-button" text="Generate Report" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                    <Button fx:id="exportSalesReportBtn" mnemonicParsing="false" onAction="#handleExportSalesReport" styleClass="action-button" text="Export Report" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </GridPane>
+                           </top>
+                           <center>
+                              <VBox fx:id="salesReportContainer" spacing="10.0" BorderPane.alignment="CENTER">
+                                 <BorderPane.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </BorderPane.margin>
+                                 <children>
+                                    <Label styleClass="placeholder-text" text="Select a report type and date range, then click 'Generate Report'" />
+                                 </children>
+                              </VBox>
+                           </center>
+                        </BorderPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Inventory Reports">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <BorderPane layoutX="254.0" layoutY="133.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <top>
+                              <GridPane hgap="10.0" vgap="10.0" BorderPane.alignment="CENTER">
+                                <columnConstraints>
+                                  <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="120.0" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+                                    <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="120.0" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+                                    <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="120.0" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label text="Category:" />
+                                    <ComboBox fx:id="inventoryCategoryCombo" prefWidth="150.0" GridPane.columnIndex="1" />
+                                    <Label text="Report Type:" GridPane.columnIndex="2" />
+                                    <ComboBox fx:id="inventoryReportTypeCombo" prefWidth="150.0" GridPane.columnIndex="3" />
+                                    <Button fx:id="generateInventoryReportBtn" mnemonicParsing="false" onAction="#handleGenerateInventoryReport" styleClass="action-button" text="Generate Report" GridPane.columnIndex="4" />
+                                    <Button fx:id="exportInventoryReportBtn" mnemonicParsing="false" onAction="#handleExportInventoryReport" styleClass="action-button" text="Export Report" GridPane.columnIndex="5" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </GridPane>
+                           </top>
+                           <center>
+                              <VBox fx:id="inventoryReportContainer" spacing="10.0" BorderPane.alignment="CENTER">
+                                 <BorderPane.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </BorderPane.margin>
+                                 <children>
+                                    <Label styleClass="placeholder-text" text="Select a report type and category, then click 'Generate Report'" />
+                                 </children>
+                              </VBox>
+                           </center>
+                        </BorderPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Customer Reports">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <top>
+                              <GridPane hgap="10.0" vgap="10.0" BorderPane.alignment="CENTER">
+                                <columnConstraints>
+                                  <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="120.0" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+                                    <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="120.0" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+                                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label text="Customer:" />
+                                    <ComboBox fx:id="customerCombo" prefWidth="200.0" GridPane.columnIndex="1" />
+                                    <Label text="Report Type:" GridPane.columnIndex="2" />
+                                    <ComboBox fx:id="customerReportTypeCombo" prefWidth="200.0" GridPane.columnIndex="3" />
+                                    <Button fx:id="generateCustomerReportBtn" mnemonicParsing="false" onAction="#handleGenerateCustomerReport" styleClass="action-button" text="Generate Report" GridPane.columnIndex="4" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </GridPane>
+                           </top>
+                           <center>
+                              <VBox fx:id="customerReportContainer" spacing="10.0" BorderPane.alignment="CENTER">
+                                 <BorderPane.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </BorderPane.margin>
+                                 <children>
+                                    <Label styleClass="placeholder-text" text="Select a customer and report type, then click 'Generate Report'" />
+                                 </children>
+                              </VBox>
+                           </center>
+                        </BorderPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Financial Reports">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <top>
+                              <GridPane hgap="10.0" vgap="10.0" BorderPane.alignment="CENTER">
+                                 <columnConstraints>
+                                    <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="120.0" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+                                    <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="120.0" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+                                    <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="120.0" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <Label text="Date Range:" />
+                                    <ComboBox fx:id="financialDateRangeCombo" prefWidth="150.0" GridPane.columnIndex="1" />
+                                    <Label text="Start Date:" GridPane.columnIndex="2" />
+                                    <DatePicker fx:id="financialStartDatePicker" GridPane.columnIndex="3" />
+                                    <Label text="End Date:" GridPane.columnIndex="4" />
+                                    <DatePicker fx:id="financialEndDatePicker" GridPane.columnIndex="5" />
+                                    <Label text="Report Type:" GridPane.rowIndex="1" />
+                                    <ComboBox fx:id="financialReportTypeCombo" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Button fx:id="generateFinancialReportBtn" mnemonicParsing="false" onAction="#handleGenerateFinancialReport" styleClass="action-button" text="Generate Report" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                    <Button fx:id="exportFinancialReportBtn" mnemonicParsing="false" onAction="#handleExportFinancialReport" styleClass="action-button" text="Export Report" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </GridPane>
+                           </top>
+                           <center>
+                              <VBox fx:id="financialReportContainer" spacing="10.0" BorderPane.alignment="CENTER">
+                                 <BorderPane.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </BorderPane.margin>
+                                 <children>
+                                    <Label styleClass="placeholder-text" text="Select a report type and date range, then click 'Generate Report'" />
+                                 </children>
+                              </VBox>
+                           </center>
+                        </BorderPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Batch Analysis">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <top>
+                              <GridPane hgap="10.0" vgap="10.0" BorderPane.alignment="CENTER">
+                                 <columnConstraints>
+                                    <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="120.0" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+                                    <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="120.0" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+                                    <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="120.0" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="150.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <Label text="Product:" />
+                                    <ComboBox fx:id="batchProductCombo" prefWidth="150.0" GridPane.columnIndex="1" />
+                                    <Label text="Batch Status:" GridPane.columnIndex="2" />
+                                    <ComboBox fx:id="batchStatusCombo" prefWidth="150.0" GridPane.columnIndex="3" />
+                                    <Label text="Date Range:" GridPane.columnIndex="4" />
+                                    <ComboBox fx:id="batchDateRangeCombo" prefWidth="150.0" GridPane.columnIndex="5" />
+                                    <Label text="Report Type:" GridPane.rowIndex="1" />
+                                    <ComboBox fx:id="batchReportTypeCombo" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Button fx:id="generateBatchReportBtn" mnemonicParsing="false" onAction="#handleGenerateBatchReport" styleClass="action-button" text="Generate Report" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                    <Button fx:id="exportBatchReportBtn" mnemonicParsing="false" onAction="#handleExportBatchReport" styleClass="action-button" text="Export Report" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </GridPane>
+                           </top>
+                           <center>
+                              <VBox fx:id="batchReportContainer" spacing="10.0" BorderPane.alignment="CENTER">
+                                 <BorderPane.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </BorderPane.margin>
+                                 <children>
+                                    <Label styleClass="placeholder-text" text="Select report parameters and click 'Generate Report'" />
+                                 </children>
+                              </VBox>
+                           </center>
+                        </BorderPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+</BorderPane>

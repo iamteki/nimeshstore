@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.Tooltip?>
+
+<BorderPane fx:id="mainBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="700.0" minWidth="1100.0" prefHeight="768.0" prefWidth="1200.0" stylesheets="@../css/dashboard.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nimesh.controller.DashboardController">
+   <left>
+      <VBox id="sidebar" fx:id="sidebarVBox" prefHeight="768.0" prefWidth="250.0" styleClass="sidebar" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="80.0" prefWidth="250.0" styleClass="logo-container">
+               <children>
+                  <Label fx:id="logoText" styleClass="logo-text" text="NIMESH STORE">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="toggleSidebarBtn" mnemonicParsing="false" onAction="#handleToggleSidebar" styleClass="toggle-sidebar-btn">
+                     <graphic>
+                        <Label styleClass="icon, toggle-icon" text="&#xf053;" /> <!-- Left arrow icon -->
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Collapse Sidebar" />
+                     </tooltip>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <VBox fx:id="menuContainer" prefHeight="688.0" prefWidth="250.0" spacing="5.0" styleClass="menu-container">
+               <children>
+                  <Label fx:id="menuSectionLabel" styleClass="menu-section" text="MAIN MENU">
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Button fx:id="dashboardBtn" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#handleDashboardAction" prefHeight="45.0" prefWidth="230.0" styleClass="menu-button" text="Dashboard">
+                     <graphic>
+                        <Label styleClass="icon, dashboard-icon" text="&#xf0e4;" />
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Dashboard" />
+                     </tooltip>
+                  </Button>
+                  <Button fx:id="inventoryBtn" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#handleInventoryAction" prefHeight="45.0" prefWidth="230.0" styleClass="menu-button" text="Inventory">
+                     <graphic>
+                        <Label styleClass="icon, inventory-icon" text="&#xf1b3;" />
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Inventory" />
+                     </tooltip>
+                  </Button>
+                  <!-- Add this after the inventoryBtn and before the posBtn -->
+<Button fx:id="batchManagementBtn" alignment="BASELINE_LEFT" graphicTextGap="15.0" 
+        mnemonicParsing="false" onAction="#handleBatchManagementAction" 
+        prefHeight="45.0" prefWidth="230.0" styleClass="menu-button" text="Batches">
+    <graphic>
+        <Label styleClass="icon, batch-icon" text="&#xf1da;" /> <!-- Using FontAwesome history icon -->
+    </graphic>
+    <tooltip>
+        <Tooltip text="Batch Management" />
+    </tooltip>
+</Button>
+                  <Button fx:id="posBtn" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#handlePOSAction" prefHeight="45.0" prefWidth="230.0" styleClass="menu-button" text="Point of Sale">
+                     <graphic>
+                        <Label styleClass="icon, pos-icon" text="&#xf07a;" />
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Point of Sale" />
+                     </tooltip>
+                  </Button>
+                  <Button fx:id="customersBtn" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#handleCustomersAction" prefHeight="45.0" prefWidth="230.0" styleClass="menu-button" text="Customers">
+                     <graphic>
+                        <Label styleClass="icon, customers-icon" text="&#xf0c0;" />
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Customers" />
+                     </tooltip>
+                  </Button>
+                  <Button fx:id="suppliersBtn" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#handleSuppliersAction" prefHeight="45.0" prefWidth="230.0" styleClass="menu-button" text="Suppliers">
+                     <graphic>
+                        <Label styleClass="icon, suppliers-icon" text="&#xf1ad;" />
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Suppliers" />
+                     </tooltip>
+                  </Button>
+                  <Separator prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Separator>
+                  <Label fx:id="reportsSectionLabel" styleClass="menu-section" text="REPORTS">
+                    <VBox.margin>
+                        <Insets bottom="5.0" />
+                    </VBox.margin>
+                  </Label>
+                  <!-- Make the report buttons the same height as main menu buttons -->
+                  <Button fx:id="salesReportBtn" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#handleSalesReportAction" prefHeight="45.0" prefWidth="230.0" styleClass="menu-button" text="Sales Reports">
+                      <graphic>
+                          <Label styleClass="icon, reports-icon" text="&#xf080;" />
+                      </graphic>
+                      <tooltip>
+                          <Tooltip text="Sales Reports" />
+                      </tooltip>
+                  </Button>
+                  <Button fx:id="inventoryReportBtn" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#handleInventoryReportAction" prefHeight="45.0" prefWidth="230.0" styleClass="menu-button" text="Inventory Reports">
+                      <graphic>
+                          <Label styleClass="icon, inventory-report-icon" text="&#xf1fe;" />
+                      </graphic>
+                      <tooltip>
+                          <Tooltip text="Inventory Reports" />
+                      </tooltip>
+                  </Button>
+                  <Button fx:id="customerReportBtn" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#handleCustomerReportAction" prefHeight="45.0" prefWidth="230.0" styleClass="menu-button" text="Customer Reports">
+                      <graphic>
+                          <Label styleClass="icon, customers-icon" text="&#xf0c0;" />
+                      </graphic>
+                      <tooltip>
+                          <Tooltip text="Customer Reports" />
+                      </tooltip>
+                  </Button>
+                  <Button fx:id="financialReportBtn" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#handleFinancialReportAction" prefHeight="45.0" prefWidth="230.0" styleClass="menu-button" text="Financial Reports">
+                      <graphic>
+                          <Label styleClass="icon, financial-icon" text="&#xf155;" />
+                      </graphic>
+                      <tooltip>
+                          <Tooltip text="Financial Reports" />
+                      </tooltip>
+                  </Button>
+
+                  <Separator prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Separator>
+                  <Label fx:id="settingsSectionLabel" styleClass="menu-section" text="SETTINGS">
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  
+                  <Button fx:id="notificationsBtn" alignment="BASELINE_LEFT" graphicTextGap="15.0" 
+                          mnemonicParsing="false" onAction="#handleNotificationsAction" 
+                          prefHeight="45.0" prefWidth="230.0" styleClass="menu-button" text="SMS Notifications">
+                      <graphic>
+                          <Label styleClass="icon, notifications-icon" text="&#xf0f3;" />
+                      </graphic>
+                      <tooltip>
+                          <Tooltip text="SMS Notifications" />
+                      </tooltip>
+                  </Button>
+                  
+                  <Button fx:id="settingsBtn" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#handleSettingsAction" prefHeight="45.0" prefWidth="230.0" styleClass="menu-button" text="Settings">
+                     <graphic>
+                        <Label styleClass="icon, settings-icon" text="&#xf013;" />
+                     </graphic>
+                     <tooltip>
+                         <Tooltip text="Settings" />
+                     </tooltip>
+                  </Button>
+                  <Button fx:id="logoutBtn" alignment="BASELINE_LEFT" graphicTextGap="15.0" mnemonicParsing="false" onAction="#handleLogout" prefHeight="45.0" prefWidth="230.0" styleClass="menu-button" text="Logout">
+                     <graphic>
+                        <Label styleClass="icon, logout-icon" text="&#xf08b;" />
+                     </graphic>
+                     <tooltip>
+                         <Tooltip text="Logout" />
+                     </tooltip>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets left="10.0" right="10.0" top="20.0" />
+               </padding>
+            </VBox>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <VBox fx:id="dashboardContent" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="200.0" spacing="20.0" styleClass="top-bar">
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
+               <children>
+                  <Button fx:id="expandSidebarBtn" mnemonicParsing="false" onAction="#handleExpandSidebar" styleClass="expand-sidebar-btn" visible="false">
+                     <graphic>
+                        <Label styleClass="icon, toggle-icon" text="&#xf054;" /> <!-- Right arrow icon -->
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Expand Sidebar" />
+                     </tooltip>
+                  </Button>
+                  <Label fx:id="pageTitleLabel" styleClass="page-title" text="Dashboard">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Pane HBox.hgrow="ALWAYS" />
+                  <Label fx:id="dateTimeLabel" styleClass="datetime-label" text="Wednesday, March 26, 2025 | 08:35 PM">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="userLabel" styleClass="user-label" text="Admin">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <ScrollPane fitToWidth="true" styleClass="content-area" VBox.vgrow="ALWAYS">
+               <content>
+                  <VBox spacing="20.0">
+                     <children>
+                        <GridPane hgap="20.0" vgap="20.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="120.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <AnchorPane styleClass="dashboard-card, sales-card">
+                                 <children>
+                                    <VBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="10.0" prefHeight="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0">
+                                       <children>
+                                          <Label styleClass="card-title" text="Today's Sales">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="todaySalesLabel" styleClass="card-value" text="₹ 25,350">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="salesChangeLabel" styleClass="card-change, positive-change" text="+15.2% from yesterday">
+                                             <font>
+                                                <Font size="12.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <Label styleClass="card-icon, sales-icon" text="&#xf0d6;" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="25.0" />
+                                 </children>
+                                 <effect>
+                                    <DropShadow height="10.0" radius="4.5" width="10.0" />
+                                 </effect>
+                              </AnchorPane>
+                              <AnchorPane styleClass="dashboard-card, inventory-card" GridPane.columnIndex="1">
+                                 <children>
+                                    <VBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="10.0" prefHeight="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0">
+                                       <children>
+                                          <Label styleClass="card-title" text="Low Stock Items">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="lowStockLabel" styleClass="card-value" text="12">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="stockChangeLabel" styleClass="card-change, negative-change" text="+3 from yesterday">
+                                             <font>
+                                                <Font size="12.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <Label styleClass="card-icon, inventory-icon" text="&#xf1b3;" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="25.0" />
+                                 </children>
+                                 <effect>
+                                    <DropShadow height="10.0" radius="4.5" width="10.0" />
+                                 </effect>
+                              </AnchorPane>
+                              <AnchorPane styleClass="dashboard-card, customers-card" GridPane.columnIndex="2">
+                                 <children>
+                                    <VBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="10.0" prefHeight="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0">
+                                       <children>
+                                          <Label styleClass="card-title" text="Total Customers">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="totalCustomersLabel" styleClass="card-value" text="458">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="customersChangeLabel" styleClass="card-change, positive-change" text="+5 new today">
+                                             <font>
+                                                <Font size="12.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <Label styleClass="card-icon, customers-icon" text="&#xf0c0;" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="25.0" />
+                                 </children>
+                                 <effect>
+                                    <DropShadow height="10.0" radius="4.5" width="10.0" />
+                                 </effect>
+                              </AnchorPane>
+                              <AnchorPane styleClass="dashboard-card, credit-card" GridPane.columnIndex="3">
+                                 <children>
+                                    <VBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="10.0" prefHeight="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0">
+                                       <children>
+                                          <Label styleClass="card-title" text="Pending Credits">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="pendingCreditsLabel" styleClass="card-value" text="₹ 53,750">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="creditsChangeLabel" styleClass="card-change, neutral-change" text="8 customers">
+                                             <font>
+                                                <Font size="12.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <Label styleClass="card-icon, credit-icon" text="&#xf155;" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="25.0" />
+                                 </children>
+                                 <effect>
+                                    <DropShadow height="10.0" radius="4.5" width="10.0" />
+                                 </effect>
+                              </AnchorPane>
+                           </children>
+                        </GridPane>
+                        <GridPane hgap="20.0" vgap="20.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="300.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="chart-card">
+                                 <children>
+                                    <Label styleClass="chart-title" text="Monthly Sales" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="15.0">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <BarChart fx:id="monthlySalesChart" legendVisible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0">
+                                      <xAxis>
+                                        <CategoryAxis side="BOTTOM" />
+                                      </xAxis>
+                                      <yAxis>
+                                        <NumberAxis side="LEFT" />
+                                      </yAxis>
+                                    </BarChart>
+                                 </children>
+                                 <effect>
+                                    <DropShadow height="10.0" radius="4.5" width="10.0" />
+                                 </effect>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="chart-card" GridPane.columnIndex="1">
+                                 <children>
+                                    <Label styleClass="chart-title" text="Product Categories" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="15.0">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <PieChart fx:id="categoriesChart" labelLineLength="20.0" labelsVisible="true" legendVisible="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0" />
+                                 </children>
+                                 <effect>
+                                    <DropShadow height="10.0" radius="4.5" width="10.0" />
+                                 </effect>
+                              </AnchorPane>
+                           </children>
+                        </GridPane>
+                        <GridPane hgap="20.0" vgap="20.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="180.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="chart-card">
+                                 <children>
+                                    <Label styleClass="chart-title" text="Recent Activities" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="15.0">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <ScrollPane fitToWidth="true" styleClass="activities-scroll-pane" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="50.0">
+                                        <content>
+                                            <VBox fx:id="recentActivitiesContainer" spacing="10.0" />
+                                        </content>
+                                    </ScrollPane>
+                                 </children>
+                                 <effect>
+                                    <DropShadow height="10.0" radius="4.5" width="10.0" />
+                                 </effect>
+                              </AnchorPane>
+                           </children>
+                        </GridPane>
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                  </VBox>
+               </content>
+            </ScrollPane>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

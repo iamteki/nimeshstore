@@ -1,0 +1,225 @@
+/* Customer Management Styles */
+.root {
+    -fx-background-color: #f5f7fa;
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* Top Bar Styles */
+.top-bar {
+    -fx-background-color: white;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);
+}
+
+.page-title {
+    -fx-text-fill: #2c3e50;
+    -fx-font-weight: bold;
+}
+
+/* Tab Pane Styles */
+.tab-pane {
+    -fx-background-color: #f5f7fa;
+    -fx-tab-min-width: 120px;
+    -fx-tab-max-width: 120px;
+    -fx-tab-min-height: 40px;
+}
+
+.tab {
+    -fx-background-color: #ecf0f1;
+    -fx-background-radius: 8px 8px 0 0;
+    -fx-padding: 5 15 5 15;
+}
+
+.tab:selected {
+    -fx-background-color: white;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.tab .tab-label {
+    -fx-text-fill: #7f8c8d;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+.tab:selected .tab-label {
+    -fx-text-fill: #2c3e50;
+}
+
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: #f5f7fa;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 1);
+}
+
+
+
+/* Search Bar */
+.search-bar {
+    -fx-background-color: white;
+    -fx-border-color: #ecf0f1;
+    -fx-border-width: 0 0 1 0;
+}
+
+.search-field {
+    -fx-background-color: #f5f5f5;
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 4px;
+    -fx-padding: 8px;
+    -fx-font-size: 14px;
+}
+
+.search-field:focused {
+    -fx-border-color: #3498db;
+}
+
+.search-button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.search-button:hover {
+    -fx-background-color: #2980b9;
+}
+
+/* Table Styles */
+.table-view {
+    -fx-background-color: white;
+    -fx-background-radius: 4px;
+    -fx-padding: 0;
+}
+
+.table-view .column-header {
+    -fx-background-color: #34495e;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10 5 10 5;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-alignment: center-left;
+}
+
+.table-view .table-cell {
+    -fx-padding: 8 5 8 5;
+    -fx-border-width: 0;
+}
+
+.table-view .table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: #ecf0f1;
+    -fx-border-width: 0 0 1 0;
+}
+
+.table-view .table-row-cell:odd {
+    -fx-background-color: #f9f9f9;
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: #d4e6f1;
+    -fx-text-fill: black;
+}
+
+/* Button Bar */
+.button-bar {
+    -fx-background-color: white;
+    -fx-border-color: #ecf0f1;
+    -fx-border-width: 1 0 0 0;
+}
+
+.action-button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.action-button:hover {
+    -fx-background-color: #2980b9;
+}
+
+.delete-button {
+    -fx-background-color: #e74c3c;
+}
+
+.delete-button:hover {
+    -fx-background-color: #c0392b;
+}
+
+.refresh-button {
+    -fx-background-color: #2ecc71;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.refresh-button:hover {
+    -fx-background-color: #27ae60;
+}
+
+/* Report Container */
+.report-container {
+    -fx-background-color: white;
+    -fx-background-radius: 4px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);
+}
+
+.section-header {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+.placeholder-text {
+    -fx-text-fill: #95a5a6;
+    -fx-font-size: 14px;
+    -fx-alignment: center;
+}
+
+/* Credit Status */
+.credit-normal {
+    -fx-text-fill: #2ecc71;
+}
+
+.credit-high {
+    -fx-text-fill: #f39c12;
+}
+
+.credit-critical {
+    -fx-text-fill: #e74c3c;
+}
+
+/* Button styles for credit actions */
+.pay-button {
+    -fx-background-color: #2ecc71;
+    -fx-text-fill: white;
+    -fx-font-size: 11px;
+    -fx-padding: 3 8;
+}
+
+.pay-button:hover {
+    -fx-background-color: #27ae60;
+}
+
+.detail-button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-size: 11px;
+    -fx-padding: 3 8;
+}
+
+.detail-button:hover {
+    -fx-background-color: #2980b9;
+}
+
+.remind-button {
+    -fx-background-color: #f39c12;
+    -fx-text-fill: white;
+    -fx-font-size: 11px;
+    -fx-padding: 3 8;
+}
+
+.remind-button:hover {
+    -fx-background-color: #d35400;
+}
