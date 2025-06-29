@@ -300,21 +300,6 @@ We welcome contributions! Please follow these steps:
 - Webcam barcode scanning may be slow on some systems
 - Report generation for large datasets may take time
 
-## 🚦 Roadmap
-
-### Version 2.0
-- [ ] REST API for external integrations
-- [ ] Mobile application support
-- [ ] Cloud synchronization
-- [ ] Multi-branch support
-- [ ] Advanced analytics dashboard
-
-### Version 3.0
-- [ ] E-commerce integration
-- [ ] AI-powered demand forecasting
-- [ ] Automated purchase orders
-- [ ] Customer loyalty program
-- [ ] Multi-language support
 
 ## 📄 License
 
@@ -322,7 +307,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👨‍💻 Author
 
-**Nimesh** - *Initial work* - [GitHub Profile](https://github.com/yourusername)
+**Kaushalya Wickramasinghe** - *Initial work* - [GitHub Profile](https://github.com/iamteki)
 
 ## 📞 Contact
 
@@ -330,16 +315,8 @@ For support or queries:
 - web: https://wickra.dev
 - Email: kaushalyawiki@gmail.com
 - Phone: +94701614804
-- Issues: [GitHub Issues](https://github.com/yourusername/NimeshStore/issues)
+- Issues: [GitHub Issues](https://github.com/iamteki/NimeshStore/issues)
 
-## 🙏 Acknowledgments
-
-- Spring Boot team for the excellent framework
-- OpenJFX community for JavaFX support
-- All contributors who helped improve this project
-- Special thanks to the beta testers
-
----
 
 <div align="center">
   Made with ❤️ in Sri Lanka
