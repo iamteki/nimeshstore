@@ -327,8 +327,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Contact
 
 For support or queries:
-- Email: support@nimeshstore.com
-- Phone: +94XXXXXXXXX
+- web: https://wickra.dev
+- Email: kaushalyawiki@gmail.com
+- Phone: +94701614804
 - Issues: [GitHub Issues](https://github.com/yourusername/NimeshStore/issues)
 
 ## 🙏 Acknowledgments
