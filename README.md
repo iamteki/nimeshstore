@@ -267,17 +267,17 @@ NimeshStore/
 ## 📸 Screenshots
 
 ### Login Screen
-<img src="docs/screenshots/login.png" alt="Login Screen" width="600"/>
+<img src="https://wickra.dev/assets/nimeshstore/login.PNG" alt="Login Screen" width="600"/>
 
 ### Dashboard
-<img src="docs/screenshots/dashboard.png" alt="Dashboard" width="800"/>
+<img src="https://wickra.dev/assets/nimeshstore/dashboard.PNG" alt="Dashboard" width="800"/>
 
 ### Point of Sale
-<img src="docs/screenshots/pos.png" alt="POS Screen" width="800"/>
+<img src="https://wickra.dev/assets/nimeshstore/pos2.PNG" alt="POS Screen" width="800"/>
 
 ### Inventory Management
-<img src="docs/screenshots/inventory1.png" alt="Inventory Management" width="800"/>
-<img src="docs/screenshots/inventory2.png" alt="Inventory Management" width="800"/>
+<img src="https://wickra.dev/assets/nimeshstore/inventory.PNG" alt="Inventory Management" width="800"/>
+<img src="https://wickra.dev/assets/nimeshstore/inventory1.PNG" alt="Inventory Management" width="800"/>
 
 ## 🤝 Contributing
 
