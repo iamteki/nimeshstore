@@ -277,7 +277,7 @@ NimeshStore/
 
 ### Inventory Management
 <img src="https://wickra.dev/assets/nimeshstore/inventory.PNG" alt="Inventory Management" width="800"/>
-<img src="https://wickra.dev/assets/nimeshstore/inventory1.PNG" alt="Inventory Management" width="800"/>
+<img src="https://wickra.dev/assets/nimeshstore/inventory2.PNG" alt="Inventory Management" width="800"/>
 
 ## 🤝 Contributing
 
