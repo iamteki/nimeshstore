@@ -276,7 +276,8 @@ NimeshStore/
 <img src="docs/screenshots/pos.png" alt="POS Screen" width="800"/>
 
 ### Inventory Management
-<img src="docs/screenshots/inventory.png" alt="Inventory Management" width="800"/>
+<img src="docs/screenshots/inventory1.png" alt="Inventory Management" width="800"/>
+<img src="docs/screenshots/inventory2.png" alt="Inventory Management" width="800"/>
 
 ## 🤝 Contributing
 
